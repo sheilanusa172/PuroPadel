@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../CSS/Dashboard.css">
+</head>
+<body>
+    <button id="menu-toggle" class="menu-toggle">☰</button> <!-- Botón para mostrar/esconder el sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="user-info">
+            <img src="/imagenes/Jose Maria Garcias.webp" alt="User Image" class="user-image">
+            <span class="user-name">Jose Maria</span>
+        </div>
+        <ul>
+            <li><a href="ReservarCancha.html">Reservar Cancha</a></li>
+            <li><a href="QuienesSomos.html">Quiénes Somos</a></li>
+            <li><a href="Profesores.html">Profesores</a></li>
+            <li><a href="Torneos.html">Torneos</a></li>
+            <li><a href="Leaderboard.html">Leaderboard</a></li>
+            <li><a href="CatalogodeProductos.html">Catálogo de Productos</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="CerrarSesion.html">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h2>Welcome Back, User</h2>
+            <p>This is a test card to show basic layout.</p>
+        </div>
+        <div class="card">
+            <h2>Another Card</h2>
+            <p>More detailed content can go here.</p>
+        </div>
+    </div>
+    <script src="dashboard.js"></script> <!-- JavaScript para controlar el sidebar -->
+</body>
+</html>

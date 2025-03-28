@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    background-color: #3f51b5;
+    transition: left 0.3s;
+    padding-top: 80px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-size: 14px;
+    color: white;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+}
+
+.sidebar li {
+    padding: 10px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #303f9f;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    background: #3f51b5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.content {
+    transition: margin-left 0.3s;
+    padding: 20px;
+    margin-left: 0;
+    margin-top: 100px; /* Ajusta el margen superior */
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
