@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Padel - Torneos</title>
+</head>
+<body>
+
+    <h1>Torneos</h1>
+
+    <!-- Lista de torneos -->
+    <section>
+        <h2>Lista de Torneos</h2>
+        <ul id="lista-torneos">
+            <li>Torneo 1 - Público</li>
+            <li>Torneo 2 - Privado</li>
+        </ul>
+        <button>Crear Nuevo Torneo</button>
+    </section>
+
+    <!-- Formulario para detalles del torneo -->
+    <section>
+        <h2>Crear Torneo</h2>
+        <form id="form-torneo">
+            <label for="nombre">Nombre del Torneo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="participantes">Número de Participantes:</label>
+            <input type="number" id="participantes" name="participantes" required>
+
+            <label for="categoria">Categoría:</label>
+            <input type="text" id="categoria" name="categoria" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <label for="formato">Formato:</label>
+            <input type="text" id="formato" name="formato" required>
+
+            <label for="visibilidad">Visibilidad:</label>
+            <select id="visibilidad" name="visibilidad">
+                <option value="publico">Público</option>
+                <option value="privado">Privado</option>
+            </select>
+
+            <button type="submit">Guardar Torneo</button>
+        </form>
+    </section>
+
+    <a href="resultados.html">Ver Resultados</a>
+
+</body>
+</html>
