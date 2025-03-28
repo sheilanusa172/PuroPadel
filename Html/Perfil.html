@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Padel - Perfil del Usuario</title>
+</head>
+<body>
+
+    <h1>Perfil del Usuario</h1>
+
+    <!-- Sección de información personal -->
+    <section>
+        <h2>Información Personal</h2>
+
+        <!-- Imagen de perfil -->
+        <div>
+            <img id="profile-pic" src="default-profile.png" alt="Foto de perfil" width="150">
+            <br>
+            <label for="upload-pic">Cambiar foto:</label>
+            <input type="file" id="upload-pic" accept="image/*">
+        </div>
+
+        <p><strong>Nombre:</strong> Juan Pérez</p>
+        <p><strong>Edad:</strong> 30 años</p>
+        <p><strong>Ubicación:</strong> Madrid, España</p>
+        <p><strong>Rol:</strong> Jugador y Entrenador</p>
+    </section>
+
+    <!-- Sección de calificaciones y comentarios -->
+    <section>
+        <h2>Calificaciones y Comentarios</h2>
+        <p><strong>Calificación Promedio:</strong> ⭐⭐⭐⭐☆ (4.5/5)</p>
+        
+        <h3>Comentarios de Otros Usuarios</h3>
+        <ul>
+            <li><strong>Ana López:</strong> "Gran jugador, muy disciplinado y amable." ⭐⭐⭐⭐⭐</li>
+            <li><strong>Carlos Ramírez:</strong> "Muy buen compañero de juego, aunque podría mejorar su saque." ⭐⭐⭐⭐☆</li>
+            <li><strong>María Fernández:</strong> "Excelente entrenador, me ayudó mucho a mejorar." ⭐⭐⭐⭐⭐</li>
+        </ul>
+
+        <h3>Deja tu comentario:</h3>
+        <form>
+            <textarea placeholder="Escribe tu comentario aquí..." rows="4" cols="50"></textarea>
+            <br>
+            <label>Calificación:</label>
+            <select>
+                <option>⭐⭐⭐⭐⭐</option>
+                <option>⭐⭐⭐⭐☆</option>
+                <option>⭐⭐⭐☆☆</option>
+                <option>⭐⭐☆☆☆</option>
+                <option>⭐☆☆☆☆</option>
+            </select>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Sección de Membresía -->
+    <section>
+        <h2>Membresía</h2>
+        <p><strong>Tipo de Membresía:</strong> Premium</p>
+        <p><strong>Vigencia:</strong> Hasta 12 de diciembre de 2025</p>
+        <p><strong>Beneficios:</strong> Acceso ilimitado a torneos, clases exclusivas y descuentos en tiendas.</p>
+    </section>
+
+    <!-- Participación en Leaderboard -->
+    <section>
+        <h2>Participación en el Leaderboard</h2>
+        <p><strong>Ranking Actual:</strong> #2</p>
+        <p><strong>Victorias:</strong> 15</p>
+        <p><strong>Derrotas:</strong> 3</p>
+        <p><strong>Porcentaje de Éxito:</strong> 83%</p>
+    </section>
+
+    <!-- Historial de Clases y Torneos -->
+    <section>
+        <h2>Historial de Clases y Torneos</h2>
+        <h3>Clases Recibidas</h3>
+        <ul>
+            <li>Clase Avanzada de Saque - 10 de marzo de 2025</li>
+            <li>Entrenamiento de Velocidad - 15 de febrero de 2025</li>
+        </ul>
+
+        <h3>Torneos Participados</h3>
+        <ul>
+            <li>🏆 <strong>Open de Barcelona</strong> - Campeón</li>
+            <li>🥈 <strong>Masters de Madrid</strong> - Subcampeón</li>
+            <li>🥉 <strong>Internacional de Valencia</strong> - Tercer lugar</li>
+        </ul>
+    </section>
+
+</body>
+</html>

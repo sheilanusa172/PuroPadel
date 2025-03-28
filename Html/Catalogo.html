@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Padel - Catálogo de Productos</title>
+</head>
+<body>
+
+    <h1>Catálogo de Productos</h1>
+
+    <!-- Filtros de búsqueda -->
+    <section>
+        <h2>Filtrar Productos</h2>
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+            <option value="todas">Todas</option>
+            <option value="ropa">Ropa</option>
+            <option value="palas">Palas</option>
+            <option value="bolas">Bolas</option>
+        </select>
+
+        <label for="buscar">Buscar:</label>
+        <input type="text" id="buscar" name="buscar" placeholder="Nombre del producto">
+
+        <button type="submit">Aplicar Filtros</button>
+    </section>
+
+    <!-- Lista de productos -->
+    <section>
+        <h2>Lista de Productos</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Camiseta Padel Pro</td>
+                    <td>Ropa</td>
+                    <td>15 disponibles</td>
+                </tr>
+                <tr>
+                    <td>Pala Carbon X</td>
+                    <td>Palas</td>
+                    <td>8 disponibles</td>
+                </tr>
+                <tr>
+                    <td>Bolas Ultra Spin</td>
+                    <td>Bolas</td>
+                    <td>20 disponibles</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>
