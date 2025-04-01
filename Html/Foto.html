@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto de Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .profile-image {
+            margin-bottom: 20px;
+        }
+        .profile-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+        .upload-btn {
+            margin-bottom: 20px;
+        }
+        .upload-btn input {
+            display: none;
+        }
+        .upload-btn label {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .skip-btn {
+            background-color: #6c757d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-image">
+            <img src="https://via.placeholder.com/100" alt="Imagen de perfil" id="profilePreview">
+        </div>
+        <div class="upload-btn">
+            <input type="file" id="profileImageInput" accept="image/*" onchange="previewImage(event)">
+            <label for="profileImageInput">Subir Imagen</label>
+        </div>
+
+        <div class="next-btn">
+            <button class="next-btn" onclick="window.location.href='PaginaInicio.html'">Siguiente</button>
+        </div>
+        
+        <div class="skip-btn">
+            <button class="skip-btn" onclick="skip()">Omitir</button>
+        </div>
+            
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const preview = document.getElementById('profilePreview');
+                preview.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function skip() {
+            alert('Has omitido la selección de imagen.');
+        }
+    </script>
+</body>
+</html>

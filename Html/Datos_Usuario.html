@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Datos de Usuario</title>
+  </head>
+  <body>
+    <h1>Formulario de Datos de Usuario</h1>
+    <form action="/userdata" method="POST">
+      <div>
+        <label for="nombre">Nombre:</label><br />
+        <input type="text" id="nombre" name="nombre" required />
+      </div>
+      <br />
+
+      <div>
+        <label for="apellido1">Primer Apellido:</label><br />
+        <input type="text" id="apellido1" name="apellido1" required />
+      </div>
+      <br />
+
+      <div>
+        <label for="apellido2">Segundo Apellido:</label><br />
+        <input type="text" id="apellido2" name="apellido2" />
+      </div>
+      <br />
+
+      <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label><br />
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+      </div>
+      <br />
+
+      <div>
+        <label for="telefono">Teléfono:</label><br />
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          pattern="[0-9]{9}"
+          placeholder="123456789"
+          required
+        />
+      </div>
+      <br />
+
+      <div>
+        <label for="direccion">Dirección:</label><br />
+        <textarea
+          id="direccion"
+          name="direccion"
+          rows="4"
+          cols="50"
+          required
+        ></textarea>
+      </div>
+      <br />
+
+      <div>
+        <label for="category">Categoría:</label><br />
+        <select id="category" name="category" required>
+          <option value="Principiante">Iniciación</option>
+          <option value="-C">-C</option>
+          <option value="C">C</option>
+          <option value="+C">+C</option>
+          <option value="-B">-B</option>
+          <option value="B">B</option>
+          <option value="+B">+B</option>
+          <option value="-A">-A</option>
+          <option value="A">A</option>
+          <option value="+A">+A</option>
+        </select>
+      </div>
+      <br />
+
+      <div>
+        <label for="description">Descripción breve:</label><br />
+        <textarea
+          id="description"
+          name="description"
+          maxlength="150"
+          required
+        ></textarea>
+      </div>
+      <br />
+
+      <div>
+        <button type="submit" onclick="window.location.href='Foto.html';">Iniciar Sesión</button>
+    </div>
+    </form>
+  </body>
+</html>
