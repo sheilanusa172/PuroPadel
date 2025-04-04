@@ -1,0 +1,44 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #26468B; /* Fondo blanco para toda la página */
+}
+
+.dashboard {
+    text-align: center;
+    color: #26468B; /* Ajuste del color del texto si es necesario */
+    padding: 20px;
+    width: 100%; /* Ajusta el ancho para que sea el de la pantalla completa */
+}
+
+h1 {
+    color: #26468B; /* Color de texto del título */
+}
+
+.buttons a {
+    display: block; /* Hace que los enlaces sean bloques, uno debajo del otro */
+    margin: 10px auto; /* Centra los botones horizontalmente */
+    width: 1000px; /* Ancho fijo para los botones */
+    height: 50px; /* Altura fija para los botones, mantiene la forma */
+    line-height: 50px; /* Asegura que el texto esté centrado verticalmente */
+    background-color: #E1ED29; /* Color de fondo azul para los botones */
+    color: #000000; /* Texto amarillo para contraste */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 200px; /* Esquinas suavemente redondeadas */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombra más ligera para profundidad */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    text-align: center; /* Alinea el texto horizontalmente */
+}
+
+.buttons a:hover {
+    background-color: #002366; /* Cambio de color al pasar el mouse a un azul marino muy oscuro */
+    color: #26468B;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+#E1ED29
+
+#26468B
