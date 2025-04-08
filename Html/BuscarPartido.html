@@ -66,6 +66,19 @@
             background-color: #0056b3;
         }
 
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #f0f8ff;
+        }
+
         footer {
             text-align: center;
             padding: 1rem 0;
@@ -74,37 +87,6 @@
             margin-top: 1rem;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Manejar el formulario de búsqueda
-            const buscarForm = document.getElementById("buscarForm");
-            buscarForm.addEventListener("submit", (event) => {
-                event.preventDefault();
-                const fecha = document.getElementById("fecha").value;
-                const nombrePartido = document.getElementById("nombrePartido").value;
-                alert(`Buscando partido: ${nombrePartido} en la fecha: ${fecha}`);
-            });
-
-            // Manejar el formulario de agendar
-            const agendarForm = document.getElementById("agendarForm");
-            agendarForm.addEventListener("submit", (event) => {
-                event.preventDefault();
-                const nombreJugador = document.getElementById("nombreJugador").value;
-                const mensajeSolicitud = document.getElementById("mensajeSolicitud").value;
-                alert(`Solicitud enviada por: ${nombreJugador}\nMensaje: ${mensajeSolicitud}`);
-            });
-
-            // Manejar el formulario de crear sala
-            const crearSalaForm = document.getElementById("crearSalaForm");
-            crearSalaForm.addEventListener("submit", (event) => {
-                event.preventDefault();
-                const nombreSala = document.getElementById("nombreSala").value;
-                const nivel = document.getElementById("nivel").value;
-                const mensaje = document.getElementById("mensaje").value;
-                alert(`Sala creada: ${nombreSala}\nNivel: ${nivel}\nDescripción: ${mensaje}`);
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -117,86 +99,17 @@
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
                 
-                <label for="nombrePartido">Nombre del Partido (opcional):</label>
-                <input type="text" id="nombrePartido" name="nombrePartido" placeholder="Ej. Partido de Amigos">
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora">
                 
                 <button type="submit">Buscar</button>
             </form>
         </section>
-
-        <section id="agendar-partido" style="display: none;"></section>
-            <h2>Agendar Partido</h2>
-            <form id="agendarForm">
-                <label for="nombreJugador">Tu Nombre:</label>
-                <input type="text" id="nombreJugador" name="nombreJugador" placeholder="Tu nombre completo" required>
-                
-                <label for="mensajeSolicitud">Mensaje para el anfitrión:</label>
-                <textarea id="mensajeSolicitud" name="mensajeSolicitud" placeholder="Escribe un mensaje para el anfitrión..." rows="4"></textarea>
-                
-                <button type="submit">Enviar Solicitud</button>
-            </form>
-        </section>
-
-        <section id="partidos-disponibles">
-            <h2>Partidos Disponibles</h2>
-            <div id="listaPartidos"></div>
-        </section>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const listaPartidos = document.getElementById("listaPartidos");
-                const agendarSection = document.getElementById("agendar-partido");
-
-                // Simular datos de partidos creados
-                const partidos = [
-                    { id: 1, nombre: "Partido de Amigos", anfitrion: "Juan Pérez", descripcion: "Partido amistoso para principiantes." },
-                    { id: 2, nombre: "Torneo Intermedio", anfitrion: "Ana López", descripcion: "Partido para jugadores intermedios." }
-                ];
-
-                // Renderizar los partidos como tarjetas
-                partidos.forEach(partido => {
-                    const card = document.createElement("div");
-                    card.style.border = "1px solid #ccc";
-                    card.style.borderRadius = "8px";
-                    card.style.padding = "1rem";
-                    card.style.marginBottom = "1rem";
-                    card.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
-                    card.innerHTML = `
-                        <h3>${partido.nombre}</h3>
-                        <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
-                        <p>${partido.descripcion}</p>
-                        <button class="solicitarUnirse" data-id="${partido.id}">Solicitar Unirse</button>
-                    `;
-                    listaPartidos.appendChild(card);
-                });
-
-                // Manejar clic en "Solicitar Unirse"
-                listaPartidos.addEventListener("click", (event) => {
-                    if (event.target.classList.contains("solicitarUnirse")) {
-                        const partidoId = event.target.getAttribute("data-id");
-                        const partidoSeleccionado = partidos.find(p => p.id == partidoId);
-
-                        if (partidoSeleccionado) {
-                            alert(`Seleccionaste el partido: ${partidoSeleccionado.nombre}`);
-                            agendarSection.style.display = "block";
-                        }
-                    }
-                });
-            });
-        </script>
-
         <section id="crear-sala">
-            <h2>Crear Sala</h2>
-            <form id="crearSalaForm">
+            <button id="btnCrearSala">Crear Sala</button>
+            <form id="crearSalaForm" style="display: none; margin-top: 1rem;">
                 <label for="nombreSala">Nombre de la Sala:</label>
-                <input type="text" id="nombreSala" name="nombreSala" placeholder="Ej. Sala de Pádel" required>
-                
-                <label for="nivel">Nivel de Juego:</label>
-                <select id="nivel" name="nivel" required>
-                    <option value="principiante">Principiante</option>
-                    <option value="intermedio">Intermedio</option>
-                    <option value="avanzado">Avanzado</option>
-                </select>
+                <input type="text" id="nombreSala" name="nombreSala" placeholder="Nombre de la sala" required>
                 
                 <label for="fechaSala">Fecha:</label>
                 <input type="date" id="fechaSala" name="fechaSala" required>
@@ -204,28 +117,118 @@
                 <label for="horaSala">Hora:</label>
                 <input type="time" id="horaSala" name="horaSala" required>
                 
-                <label for="mensaje">Descripción:</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Escribe un mensaje para los jugadores..." rows="4"></textarea>
+                <label for="nivelSala">Nivel:</label>
+                <select id="nivelSala" name="nivelSala" required>
+                    <option value="Principiante">Principiante</option>
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="Avanzado">Avanzado</option>
+                </select>
+                
+                <label for="descripcionSala">Descripción:</label>
+                <textarea id="descripcionSala" name="descripcionSala" placeholder="Describe la sala..." rows="4" required></textarea>
                 
                 <button type="submit">Crear Sala</button>
             </form>
         </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btnCrearSala = document.getElementById("btnCrearSala");
+                const crearSalaForm = document.getElementById("crearSalaForm");
+
+                btnCrearSala.addEventListener("click", () => {
+                    crearSalaForm.style.display = crearSalaForm.style.display === "none" ? "block" : "none";
+                });
+
+                crearSalaForm.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    const nombreSala = document.getElementById("nombreSala").value;
+                    const fechaSala = document.getElementById("fechaSala").value;
+                    const horaSala = document.getElementById("horaSala").value;
+                    const nivelSala = document.getElementById("nivelSala").value;
+                    const descripcionSala = document.getElementById("descripcionSala").value;
+
+                    alert(`Sala creada:\nNombre: ${nombreSala}\nFecha: ${fechaSala}\nHora: ${horaSala}\nNivel: ${nivelSala}\nDescripción: ${descripcionSala}`);
+                    crearSalaForm.reset();
+                    crearSalaForm.style.display = "none";
+                });
+            });
+        </script>
+        <section id="partidos-disponibles">
+            <h2>Partidos Disponibles</h2>
+            <div id="listaPartidos"></div>
+        </section>
+
+        <section id="detalle-partido" style="display: none;">
+            <h2>Detalle del Partido</h2>
+            <div id="detalleInfo"></div>
+            <form id="solicitudForm">
+                <label for="nombreSolicitante">Tu Nombre:</label>
+                <input type="text" id="nombreSolicitante" name="nombreSolicitante" placeholder="Tu nombre completo" required>
+                
+                <label for="mensajeSolicitud">Mensaje para el anfitrión:</label>
+                <textarea id="mensajeSolicitud" name="mensajeSolicitud" placeholder="Escribe un mensaje para el anfitrión..." rows="4"></textarea>
+                
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
     </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const agendarSection = document.getElementById("agendar-partido");
-
-            // Simular que un partido ha sido creado
-            const partidoCreado = true; // Cambiar a false para ocultar la sección
-
-            if (partidoCreado) {
-                agendarSection.style.display = "block";
-            }
-        });
-    </script>
     <footer>
         <p>&copy; 2023 Puro Pádel</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const listaPartidos = document.getElementById("listaPartidos");
+            const detallePartido = document.getElementById("detalle-partido");
+            const detalleInfo = document.getElementById("detalleInfo");
+            const solicitudForm = document.getElementById("solicitudForm");
+
+            // Simular datos de partidos creados
+            const partidos = [
+                { id: 1, nombre: "Partido de Amigos", anfitrion: "Juan Pérez", descripcion: "Partido amistoso para principiantes.", nivel: "Principiante", fecha: "2023-10-15", hora: "18:00" },
+                { id: 2, nombre: "Torneo Intermedio", anfitrion: "Ana López", descripcion: "Partido para jugadores intermedios.", nivel: "Intermedio", fecha: "2023-10-16", hora: "20:00" }
+            ];
+
+            // Renderizar los partidos como tarjetas
+            partidos.forEach(partido => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <h3>${partido.nombre}</h3>
+                    <p><strong>Fecha:</strong> ${partido.fecha}</p>
+                    <p><strong>Hora:</strong> ${partido.hora}</p>
+                    <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
+                `;
+                card.addEventListener("click", () => {
+                    mostrarDetalle(partido);
+                });
+                listaPartidos.appendChild(card);
+            });
+
+            // Mostrar detalle del partido
+            function mostrarDetalle(partido) {
+                detalleInfo.innerHTML = `
+                    <h3>${partido.nombre}</h3>
+                    <p><strong>Fecha:</strong> ${partido.fecha}</p>
+                    <p><strong>Hora:</strong> ${partido.hora}</p>
+                    <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
+                    <p><strong>Nivel:</strong> ${partido.nivel}</p>
+                    <p>${partido.descripcion}</p>
+                `;
+                detallePartido.style.display = "block";
+                window.scrollTo(0, detallePartido.offsetTop);
+            }
+
+            // Manejar envío del formulario de solicitud
+            solicitudForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const nombreSolicitante = document.getElementById("nombreSolicitante").value;
+                const mensajeSolicitud = document.getElementById("mensajeSolicitud").value;
+                alert(`Solicitud enviada por: ${nombreSolicitante}\nMensaje: ${mensajeSolicitud}`);
+                solicitudForm.reset();
+            });
+        });
+    </script>
 </body>
 </html>
