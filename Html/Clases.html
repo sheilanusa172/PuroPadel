@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clases</title>
+    <script>
+        // Simulación de datos de horarios disponibles para dos días específicos
+        var horariosDisponibles = {
+            '1': { // Profesor A
+                '2025-04-08': ['10:00 AM - 11:00 AM', '01:00 PM - 02:00 PM'],
+                '2025-04-09': ['09:00 AM - 10:00 AM', '03:00 PM - 04:00 PM']
+            },
+            '2': { // Profesor B
+                '2025-04-08': ['10:30 AM - 11:30 AM', '02:00 PM - 03:00 PM'],
+                '2025-04-09': ['11:00 AM - 12:00 PM', '04:00 PM - 05:00 PM']
+            }
+        };
+
+        // Precios por profesor
+        var precios = {
+            '1': 50, // Profesor A cobra $50 por clase
+            '2': 60  // Profesor B cobra $60 por clase
+        };
+
+        function mostrarHorarios() {
+            var profesor = document.getElementById('profesor').value;
+            var fecha = document.getElementById('fecha').value;
+            var horariosDiv = document.getElementById('horariosDisponibles');
+            var precioDiv = document.getElementById('precioClase');
+            horariosDiv.innerHTML = ''; // Limpiar horarios anteriores
+            precioDiv.innerHTML = ''; // Limpiar precio anterior
+
+            // Mostrar precio
+            if (precios[profesor]) {
+                precioDiv.textContent = `Costo por clase: $${precios[profesor]} USD`;
+            }
+
+            // Mostrar horarios
+            if (horariosDisponibles[profesor] && horariosDisponibles[profesor][fecha]) {
+                var select = document.createElement('select');
+                select.id = 'horarioSeleccionado';
+                select.name = 'horarioSeleccionado';
+                horariosDisponibles[profesor][fecha].forEach(horario => {
+                    var option = document.createElement('option');
+                    option.value = horario;
+                    option.textContent = horario;
+                    select.appendChild(option);
+                });
+                horariosDiv.appendChild(select);
+            } else {
+                var p = document.createElement('p');
+                p.textContent = 'No hay horarios disponibles para la fecha seleccionada.';
+                horariosDiv.appendChild(p);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Clases disponibles</h1>
+    </header>
+    <section>
+        <h2>Inscribirse en una clase</h2>
+        <form action="/reservar-clase" method="post">
+            <label for="fecha">Elige una fecha:</label>
+            <input type="date" id="fecha" name="fecha" required onchange="mostrarHorarios()">
+
+            <label for="profesor">Elige un profesor:</label>
+            <select id="profesor" name="profesor" onchange="mostrarHorarios()">
+                <option value="">Selecciona un profesor</option>
+                <option value="1">Profesor A</option>
+                <option value="2">Profesor B</option>
+            </select>
+            
+            <div id="horariosDisponibles">
+                <!-- Los horarios se cargarán aquí -->
+            </div>
+
+            <div id="precioClase">
+                <!-- El precio de la clase se mostrará aquí -->
+            </div>
+
+            <div>
+                <label for="participante1">Nombre del participante 1:</label>
+                <input type="text" id="participante1" name="participante1" required>
+                <label for="participante2">Nombre del participante 2 (opcional):</label>
+                <input type="text" id="participante2" name="participante2">
+                <label for="participante3">Nombre del participante 3 (opcional):</label>
+                <input type="text" id="participante3" name="participante3">
+                <label for="participante4">Nombre del participante 4 (opcional):</label>
+                <input type="text" id="participante4" name="participante4">
+            </div>
+
+            <button type="submit">Reservar clase</button>
+        </form>
+    </section>
+    <footer>
+        <p>Contacto y más información.</p>
+    </footer>
+</body>
+</html>
