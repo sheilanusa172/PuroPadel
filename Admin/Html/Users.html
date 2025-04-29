@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center p-6">
+        <h1 class="text-3xl font-bold">Users Management</h1>
+        <button id="btnAddUser" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">+ Add User</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-4 px-6 mb-6">
+        <select id="filterRole" class="p-3 rounded-xl border w-48">
+            <option value="">Filter by Role</option>
+            <option>Admin</option>
+            <option>Coach</option>
+            <option>Player</option>
+        </select>
+        <select id="filterStatus" class="p-3 rounded-xl border w-48">
+            <option value="">Filter by Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+        </select>
+        <input id="filterName" type="text" placeholder="Search by Name" class="p-3 rounded-xl border w-64"/>
+    </div>
+
+    <!-- User Table -->
+    <div class="bg-white rounded-2xl shadow mx-6 p-4 overflow-x-auto">
+        <table class="w-full text-left" id="usersTable">
+            <thead>
+                <tr class="border-b">
+                    <th class="p-4">Name</th>
+                    <th class="p-4">Email</th>
+                    <th class="p-4">Role</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Aquí se renderizan los usuarios -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div id="userModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
+        <div class="bg-white rounded-xl p-8 w-96 relative">
+            <h2 id="modalTitle" class="text-2xl mb-4 font-bold">Add User</h2>
+            <form id="userForm" class="flex flex-col gap-4">
+                <input id="userName" type="text" placeholder="Name" class="border p-3 rounded-xl" required />
+                <input id="userEmail" type="email" placeholder="Email" class="border p-3 rounded-xl" required />
+                <select id="userRole" class="border p-3 rounded-xl" required>
+                    <option value="">Select Role</option>
+                    <option>Admin</option>
+                    <option>Coach</option>
+                    <option>Player</option>
+                </select>
+                <select id="userStatus" class="border p-3 rounded-xl" required>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+                <div class="flex justify-end gap-2 mt-4">
+                    <button type="button" id="btnCancel" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Cancel</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
+      <div class="bg-white rounded-xl p-8 w-[600px] max-h-[90vh] overflow-y-auto relative">
+        <h2 class="text-2xl mb-4 font-bold">User Details</h2>
+        <div id="detailsContent" class="flex flex-col gap-4">
+          <!-- Dynamic content -->
+        </div>
+        <div class="flex justify-end mt-4">
+          <button id="btnCloseDetails" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../JS/Users.js"></script>
+
+</body>
+</html>
