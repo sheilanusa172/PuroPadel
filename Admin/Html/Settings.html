@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 id="pageTitle" class="text-3xl font-bold mb-6">Configuración</h1>
+
+    <!-- Cambiar Contraseña -->
+    <div class="bg-white rounded-xl shadow p-6 mb-6 card-section">
+      <h2 class="text-xl font-semibold mb-4 cursor-pointer" data-toggle="passwordSection">🔐 Cambiar Contraseña</h2>
+      <div id="passwordSection" class="hidden setting-section">
+        <form id="passwordForm" class="flex flex-col gap-4">
+          <input type="password" id="currentPassword" placeholder="Contraseña Actual" class="border p-3 rounded-xl" required>
+          <input type="password" id="newPassword" placeholder="Nueva Contraseña" class="border p-3 rounded-xl" required>
+          <input type="password" id="confirmPassword" placeholder="Confirmar Nueva Contraseña" class="border p-3 rounded-xl" required>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Actualizar Contraseña</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Datos Personales -->
+    <div class="bg-white rounded-xl shadow p-6 mb-6 card-section">
+      <h2 class="text-xl font-semibold mb-4 cursor-pointer" data-toggle="personalSection">👤 Datos Personales</h2>
+      <div id="personalSection" class="hidden setting-section">
+        <form id="personalForm" class="flex flex-col gap-4">
+          <input type="email" id="emailAddress" value="usuario@correo.com" disabled class="border p-3 rounded-xl bg-gray-100 cursor-not-allowed">
+          <input type="text" id="phoneNumber" placeholder="Número de Teléfono" class="border p-3 rounded-xl">
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Apariencia -->
+    <div class="bg-white rounded-xl shadow p-6 mb-6 card-section">
+      <h2 class="text-xl font-semibold mb-4 cursor-pointer" data-toggle="appearanceSection">🌗 Modo Oscuro</h2>
+      <div id="appearanceSection" class="hidden setting-section">
+        <div class="flex items-center justify-between">
+          <span>Activar Modo Oscuro</span>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="darkModeToggle" class="sr-only">
+            <div class="w-11 h-6 bg-gray-300 rounded-full shadow-inner peer-checked:bg-gray-800 transition"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cerrar Sesión -->
+    <div class="bg-white rounded-xl shadow p-6 card-section">
+    <button id="logoutBtn" class="w-full text-red-600 border border-red-600 px-6 py-4 rounded-xl hover:bg-red-100" onclick="window.location.href='/Html/Login.html'">🔓 Cerrar Sesión</button>
+    </div>
+  </div>
+
+  <script src="../JS/Settings.js"></script>
+</body>
+</html>
