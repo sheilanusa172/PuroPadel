@@ -11,17 +11,17 @@
         <button id="menu-toggle" class="menu-toggle">☰</button>
         <div class="right-icons">
             <button id="notification-btn" class="header-btn">
-                <img src="/imagenes/campana.png" alt="Jose Maria" class="profile-pic-small">
+                <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small">
             </button>
-            <div class="dropdown" id="notification-menu">
+            <div class="dropdown" id="notification-menu" style="display: none;">
                 <p>No tienes nuevas notificaciones.</p>
             </div>
             <button id="profile-btn" class="header-btn">
                 <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic-small">
             </button>
-            <div class="dropdown" id="profile-menu">
-                <a href="#">Mi perfil</a>
-                <a href="#">Configuraciones</a>
+            <div class="dropdown" id="profile-menu" style="display: none;">
+                <a href="Perfil.html">Mi perfil</a>
+                <a href="Ajustes.html">Configuraciones</a>
             </div>
         </div>
     </div>
@@ -37,14 +37,21 @@
             <li><a href="Leaderboard.html">Leaderboard</a></li>
             <li><a href="CatalogodeProductos.html">Catálogo de Productos</a></li>
             <li><a href="Calendario.html">Calendario</a></li>
-            <li><a href="Ajustes.html">Ajustes</a></li>
             <li><a href="CerrarSesion.html">Cerrar Sesión</a></li>
         </ul>
     </div>
     <div class="content">
         <div class="profile-header">
             <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic">
+            <div class="rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
             <h1 class="profile-name">Jose Maria</h1>
+            <p class="profile-description">Hola, me llamo Jose Maria y soy un apasionado del pádel. Disfruto de los torneos competitivos y siempre estoy buscando mejorar mi técnica.</p>
         </div>
         <div class="info-buttons">
             <button class="info-btn" onclick="showInfo('clases')">Clases</button>

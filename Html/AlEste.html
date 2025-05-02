@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva tu Cancha</title>
+    <link rel="stylesheet" href="../CSS/CrearPartido.css">
 </head>
 <body>
+    <div class="header">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <div class="right-icons">
+            <button id="notification-btn" class="header-btn">
+                <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="notification-menu" style="display: none;">
+                <p>No tienes nuevas notificaciones.</p>
+            </div>
+            <button id="profile-btn" class="header-btn">
+                <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="profile-menu" style="display: none;">
+                <a href="Perfil.html">Mi perfil</a>
+                <a href="Ajustes.html">Configuraciones</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="ReservarCancha.html">Reservar Cancha</a></li>
+            <li><a href="BuscarPartido.html">Buscar Partido</a></li>
+            <li><a href="QuienesSomos.html">Quiénes Somos</a></li>
+            <li><a href="Profesores.html">Profesores</a></li>
+            <li><a href="Clases.html">Clases</a></li>
+            <li><a href="Torneos.html">Torneos</a></li>
+            <li><a href="Leaderboard.html">Leaderboard</a></li>
+            <li><a href="CatalogodeProductos.html">Catálogo de Productos</a></li>
+            <li><a href="Calendario.html">Calendario</a></li>
+            <li><a href="CerrarSesion.html">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+    
     <h1>Reserva tu Cancha Ya</h1>
     <!-- Barra de fechas estilo calendario -->
     <table border="1">
@@ -43,5 +79,6 @@
             <a href="Cancha8.html">Cancha 8</a>
         </div>
     </div>
+    <script src="CrearCuenta.js"></script>
 </body>
 </html>

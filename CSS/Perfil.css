@@ -1,3 +1,77 @@
+/* Reset básico para margen y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Asegura que el contenido no queda detrás del encabezado fijo */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #26468B; /* Azul oscuro para la cabecera */
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500; /* Elevación sobre otros elementos */
+}
+
+.menu-toggle {
+    cursor: pointer;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #E1ED29; /* Amarillo para contraste */
+    padding: 10px 15px;
+}
+
+.right-icons {
+    display: flex;
+    align-items:center;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic-small, .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1000;
+    display: none;
+    right: 0;
+    top: 45px;
+    border-radius: 5px; /* Bordes redondeados */
+    width: auto;
+}
+
+.dropdown p {
+    color: black; /* Texto negro en lugar de blanco */
+    padding: 10px;
+    margin: 0;
+}
+
 .sidebar {
     width: 250px;
     position: fixed;
@@ -11,20 +85,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding-top: 100px;
-}
-
-.menu-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-    font-size: 30px;
-    color: #E1ED29;
-    background: #26468B;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    z-index: 1500;
 }
 
 .sidebar ul {
@@ -55,14 +115,16 @@
 .content {
     transition: margin-left 0.3s;
     padding: 20px;
-    margin-left: 0;
-    margin-top: 100px;
+    margin-left: 250px; /* Ajuste del contenido principal al desplegar el sidebar */
+    margin-top: 2%;
 }
 
 .profile-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -70,12 +132,21 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-name {
     font-size: 24px;
     color: #26468B;
+    margin-bottom: 10px;
+}
+
+.profile-description {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .info-buttons {
@@ -99,7 +170,7 @@
 }
 
 .info-content {
-    position:relative;
+    position: relative;
     width: 80%;
     min-height: 300px;
     margin: 20px auto;
@@ -112,61 +183,10 @@
 }
 
 .close-btn {
-    position: absolute;
+    position:absolute;
     top: 10px;
     right: 20px;
     font-size: 24px;
     color: #26468B;
     cursor: pointer;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-.right-icons {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-left: auto;
-    margin-right: 50px; /* Mueve ligeramente a la izquierda */
-}
-
-.header-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-.profile-pic-small, .icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.dropdown {
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1000;
-    display: none;
-    right: 0;
-    top: 45px;
-}
-
-.dropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {
-    background-color: #f1f1f1;
 }
