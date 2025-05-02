@@ -1,0 +1,28 @@
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+  }
+  
+  main {
+    margin-left: 220px;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0;
+  }
+  
+  .card h3 {
+    font-weight: bold;
+    margin: 0;
+  }
+  

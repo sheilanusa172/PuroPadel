@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournaments Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center p-6">
+    <h1 class="text-3xl font-bold">Tournaments Management</h1>
+    <button id="btnAddTournament" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">+ Add Tournament</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap gap-4 px-6 mb-6">
+    <input id="searchInput" type="text" placeholder="Search tournaments..." class="p-3 rounded-xl border w-64"/>
+    <select id="visibilityFilter" class="p-3 rounded-xl border w-48">
+      <option value="all">All Visibilities</option>
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+    </select>
+  </div>
+
+  <!-- Tournaments List -->
+  <div id="tournamentsList" class="px-6 flex flex-col gap-6">
+    <!-- Tournament cards will be injected here -->
+  </div>
+
+  <!-- Add/Edit Tournament Modal -->
+  <div id="tournamentModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
+    <div class="bg-white rounded-xl p-8 w-[500px] max-h-[90vh] overflow-y-auto relative">
+      <h2 id="modalTitle" class="text-2xl mb-4 font-bold">Add Tournament</h2>
+      <form id="tournamentForm" class="flex flex-col gap-4">
+        <input id="name" type="text" placeholder="Tournament Name" class="border p-3 rounded-xl" required />
+        <input id="participants" type="number" placeholder="Number of Participants" class="border p-3 rounded-xl" required />
+        <input id="category" type="text" placeholder="Category" class="border p-3 rounded-xl" required />
+        <input id="time" type="time" class="border p-3 rounded-xl" required />
+        <input id="format" type="text" placeholder="Format" class="border p-3 rounded-xl" required />
+        <select id="visibility" class="border p-3 rounded-xl" required>
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+        <input id="photo" type="file" accept="image/*" class="border p-3 rounded-xl" />
+        <textarea id="description" placeholder="Description" class="border p-3 rounded-xl" rows="4" required></textarea>
+        <div class="flex justify-end gap-2 mt-4">
+          <button type="button" id="btnCancel" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Cancel</button>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../JS/Tournament.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Reservas</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Header -->
+  <div class="flex justify-between items-center p-6">
+    <h1 class="text-3xl font-bold">Gestión de Reservas</h1>
+    <button id="btnExport" class="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700">Exportar Reservas</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap gap-4 px-6 mb-6">
+    <select id="filterCourt" class="p-3 rounded-xl border w-48">
+      <option value="">Todas las Canchas</option>
+      <!-- Canchas dinámicas -->
+    </select>
+    <input id="filterDate" type="date" class="p-3 rounded-xl border w-48"/>
+    <select id="filterStatus" class="p-3 rounded-xl border w-48">
+      <option value="">Todos los Estados</option>
+      <option value="active">Activa</option>
+      <option value="cancelled">Cancelada</option>
+      <option value="finished">Finalizada</option>
+    </select>
+  </div>
+
+  <!-- Calendar Weekly View -->
+  <div id="calendar" class="grid grid-cols-1 md:grid-cols-7 gap-4 px-6">
+    <!-- Días de la semana y reservas se inyectan dinámicamente aquí -->
+  </div>
+
+  <script src="../JS/Reservations.js"></script>
+
+</body>
+</html>
