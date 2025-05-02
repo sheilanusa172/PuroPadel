@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puro Padel - Perfil del Usuario</title>
-    <link rel="stylesheet" href="../CSS/Perfil.css">
+    <title>Reserva tu Cancha</title>
+    <link rel="stylesheet" href="/Usuario/CSS/CrearPartido.css">
 </head>
 <body>
     <div class="header">
@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+    
     <div class="sidebar" id="sidebar">
         <ul>
             <li><a href="Inicio.html">Inicio</a></li>
@@ -40,31 +41,44 @@
             <li><a href="CerrarSesion.html">Cerrar Sesión</a></li>
         </ul>
     </div>
-    <div class="content">
-        <div class="profile-header">
-            <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic">
-            <div class="rating">
-                <span class="star" data-value="1">&#9733;</span>
-                <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
-                <span class="star" data-value="4">&#9733;</span>
-                <span class="star" data-value="5">&#9733;</span>
-            </div>
-            <h1 class="profile-name">Jose Maria</h1>
-            <p class="profile-description">Hola, me llamo Jose Maria y soy un apasionado del pádel. Disfruto de los torneos competitivos y siempre estoy buscando mejorar mi técnica.</p>
+    
+    <h1>Reserva tu Cancha Ya</h1>
+    <!-- Barra de fechas estilo calendario -->
+    <table border="1">
+        <tr>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>02</td>
+            <td>03</td>
+            <td>04</td>
+            <td>05</td>
+            <td>06</td>
+            <td>07</td>
+        </tr>
+    </table>
+    <br>
+    <div>
+        <div>
+            <a href="Cancha1.html">Cancha 1</a>
+            <a href="Cancha3.html">Cancha 3</a>
+            <a href="Cancha5.html">Cancha 5</a>
+            <a href="Cancha7.html">Cancha 7</a>
         </div>
-        <div class="info-buttons">
-            <button class="info-btn" onclick="showInfo('clases')">Clases</button>
-            <button class="info-btn" onclick="showInfo('partido')">Partido</button>
-            <button class="info-btn" onclick="showInfo('torneos')">Torneos</button>
-        </div>
-        <div class="info-content" id="info-content">
-            <span class="close-btn" onclick="closeInfo()">&times;</span>
-            <h2 id="info-title" style="text-align: center;"></h2>
-            <p id="info-text"></p>
+        <div>
+            <a href="Cancha2.html">Cancha 2</a>
+            <a href="Cancha4.html">Cancha 4</a>
+            <a href="Cancha6.html">Cancha 6</a>
+            <a href="Cancha8.html">Cancha 8</a>
         </div>
     </div>
-
-    <script src="Perfil.js"></script>
+    <script src="/Usuario/JS/CrearCuenta.js"></script>
 </body>
 </html>

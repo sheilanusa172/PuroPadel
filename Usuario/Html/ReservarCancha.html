@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Cancha</title>
+    <link rel="stylesheet" href="../CSS/ReservarCancha.css">
+</head>
+<body>
+    <h1 class="titulo">Reserva tu Cancha</h1>
+
+    <div class="semana-navegacion">
+        <button id="semana-previa">← Semana Anterior</button>
+        <div id="dias-semana" class="dias-semana"></div>
+        <button id="semana-siguiente">Semana Siguiente →</button>
+    </div>
+
+    <div class="selector-horario">
+        <label for="horario">Selecciona la hora:</label>
+        <select id="horario"></select>
+
+        <label for="duracion">Duración:</label>
+        <select id="duracion">
+            <option value="60">1 hora</option>
+            <option value="90">1 hora y 30 minutos</option>
+            <option value="120">2 horas</option>
+        </select>
+    </div>
+
+    <div id="mensaje" class="mensaje"></div>
+
+    <div class="cancha-grid" id="contenedor-canchas"></div>
+
+    <script src="../js/ReservarCancha.js"></script>
+</body>
+</html>

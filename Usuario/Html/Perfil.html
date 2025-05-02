@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Padel - Perfil del Usuario</title>
+    <link rel="stylesheet" href="/Usuario/CSS/Perfil.css">
+</head>
+<body>
+    <div class="header">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <div class="right-icons">
+            <button id="notification-btn" class="header-btn">
+                <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="notification-menu" style="display: none;">
+                <p>No tienes nuevas notificaciones.</p>
+            </div>
+            <button id="profile-btn" class="header-btn">
+                <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="profile-menu" style="display: none;">
+                <a href="Perfil.html">Mi perfil</a>
+                <a href="Ajustes.html">Configuraciones</a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
+            <li><a href="/Usuario/Html/ReservarCancha.html">Reservar Cancha</a></li>
+            <li><a href="/Usuario/Html/BuscarPartido.html">Buscar Partido</a></li>
+            <li><a href="/Usuario/Html/QuienesSomos.html">Quiénes Somos</a></li>
+            <li><a href="/Usuario/Html/Profesores.html">Profesores</a></li>
+            <li><a href="/Usuario/Html/Clases.html">Clases</a></li>
+            <li><a href="/Usuario/Html/Torneos.html">Torneos</a></li>
+            <li><a href="/Usuario/Html/Leaderboard.html">Leaderboard</a></li>
+            <li><a href="/Usuario/Html/CatalogodeProductos.html">Catálogo de Productos</a></li>
+            <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
+            <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="profile-header">
+            <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic">
+            <div class="rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <h1 class="profile-name">Jose Maria</h1>
+            <p class="profile-description">Hola, me llamo Jose Maria y soy un apasionado del pádel. Disfruto de los torneos competitivos y siempre estoy buscando mejorar mi técnica.</p>
+        </div>
+        <div class="info-buttons">
+            <button class="info-btn" onclick="showInfo('clases')">Clases</button>
+            <button class="info-btn" onclick="showInfo('partido')">Partido</button>
+            <button class="info-btn" onclick="showInfo('torneos')">Torneos</button>
+        </div>
+        <div class="info-content" id="info-content">
+            <span class="close-btn" onclick="closeInfo()">&times;</span>
+            <h2 id="info-title" style="text-align: center;"></h2>
+            <p id="info-text"></p>
+        </div>
+    </div>
+
+    <script src="/Usuario/JS/Perfil.js"></script>
+</body>
+</html>

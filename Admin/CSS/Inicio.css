@@ -1,0 +1,304 @@
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* Barra Superior */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #26468B;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 1500;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #E1ED29;
+  padding: 10px 15px;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1000;
+  display: none;
+  top: 60px;
+  right: 10px;
+  border-radius: 5px;
+  min-width: 160px;
+}
+
+.dropdown p, .dropdown a {
+  color: black;
+  padding: 10px;
+  margin: 0;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100vh;
+  background-color: #26468B;
+  transition: left 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar li {
+  padding: 10px 0;
+}
+
+.sidebar a {
+  color: #E1ED29;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #1A3365;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Contenido principal */
+.main-content {
+  transition: margin-left 0.3s;
+  padding: 80px 20px 20px 20px;
+  margin-left: 0;
+}
+
+/* Título Principal */
+.container h1 {
+  font-size: 36px;
+  color: #26468B;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Input Filtro */
+#filter-input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botón Crear Noticia */
+#show-form-button {
+  background-color: #26468B;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#show-form-button:hover {
+  background-color: #1A3365;
+}
+
+/* Formulario */
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-container input, .form-container textarea, .form-container button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Card de noticia */
+.news-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Texto dentro de noticia */
+.news-item h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.news-item p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Imagen dentro de noticia */
+.news-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+}
+
+/* Fecha Publicada */
+.date {
+  font-size: 12px;
+  color: #888;
+  opacity: 0.6;
+}
+
+/* Botón eliminar */
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #cc0000;
+}
+
+/* Botón editar */
+.edit-button {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background-color: transparent;
+  border: none;
+  color: #26468B;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  color: #1A3365;
+}
+
+/* Mensaje si no hay noticias */
+.no-news-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #888;
+}
+
+
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.like-button.liked {
+  color: #e63946;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #555;
+}
+
+
