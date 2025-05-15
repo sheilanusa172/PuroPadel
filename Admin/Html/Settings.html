@@ -50,9 +50,21 @@
       </div>
     </div>
 
+    <!-- Formato de Hora -->
+    <div class="bg-white rounded-xl shadow p-6 mb-6 card-section">
+      <h2 class="text-xl font-semibold mb-4 cursor-pointer" data-toggle="hourFormatSection">🕓 Formato de Hora</h2>
+      <div id="hourFormatSection" class="hidden setting-section">
+        <label for="hourFormat" class="block mb-2 font-medium">Elige tu formato de hora preferido:</label>
+        <select id="hourFormat" class="border p-3 rounded-xl w-full">
+          <option value="24">24 horas</option>
+          <option value="12">AM/PM</option>
+        </select>
+      </div>
+    </div>
+
     <!-- Cerrar Sesión -->
     <div class="bg-white rounded-xl shadow p-6 card-section">
-    <button id="logoutBtn" class="w-full text-red-600 border border-red-600 px-6 py-4 rounded-xl hover:bg-red-100" onclick="window.location.href='/Html/Login.html'">🔓 Cerrar Sesión</button>
+      <button id="logoutBtn" class="w-full text-red-600 border border-red-600 px-6 py-4 rounded-xl hover:bg-red-100" onclick="window.location.href='/Html/Login.html'">🔓 Cerrar Sesión</button>
     </div>
   </div>
 

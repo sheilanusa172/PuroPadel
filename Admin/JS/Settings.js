@@ -4,7 +4,6 @@ darkToggle?.addEventListener('change', () => {
   document.body.classList.toggle('bg-gray-900');
   document.body.classList.toggle('text-white');
 
-  // Aplica a las tarjetas blancas
   document.querySelectorAll('.card-section').forEach(card => {
     card.classList.toggle('bg-white');
     card.classList.toggle('bg-gray-800');
@@ -12,11 +11,10 @@ darkToggle?.addEventListener('change', () => {
     card.classList.toggle('text-white');
   });
 
-  // Título de Configuración
   document.getElementById('pageTitle')?.classList.toggle('text-white');
 });
 
-// Mostrar u ocultar secciones al hacer clic en el título
+// Mostrar u ocultar secciones al hacer clic en los encabezados
 const sectionToggles = document.querySelectorAll('[data-toggle]');
 sectionToggles.forEach(toggle => {
   toggle.addEventListener('click', () => {
@@ -54,8 +52,21 @@ personalForm?.addEventListener('submit', (e) => {
   alert('Datos personales actualizados');
 });
 
+// Guardar preferencia de formato de hora
+const hourFormatSelect = document.getElementById('hourFormat');
+if (hourFormatSelect) {
+  const savedFormat = localStorage.getItem('hourFormat') || '24';
+  hourFormatSelect.value = savedFormat;
+
+  hourFormatSelect.addEventListener('change', () => {
+    const selectedFormat = hourFormatSelect.value;
+    localStorage.setItem('hourFormat', selectedFormat);
+    alert(`Formato de hora actualizado a ${selectedFormat === '24' ? '24 horas' : 'AM/PM'}`);
+  });
+}
+
 // Cerrar sesión
 document.getElementById('logoutBtn')?.addEventListener('click', () => {
   alert('Sesión cerrada');
-  // Aquí podrías hacer: localStorage.clear(); o redirigir al login
+  // localStorage.clear(); si se desea
 });

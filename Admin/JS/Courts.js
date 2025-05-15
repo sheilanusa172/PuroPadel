@@ -13,12 +13,18 @@ const courtStatus = document.getElementById('courtStatus');
 const courtImage = document.getElementById('courtImage');
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+const defaultSchedule = "5:00-23:00";
 
 btnAddCourt.addEventListener('click', () => {
   editingCourtId = null;
   modalTitle.textContent = 'Nueva Cancha';
   courtForm.reset();
   courtModal.classList.remove('hidden');
+
+  // Asignar horarios por defecto
+  days.forEach(day => {
+    document.getElementById(day).value = defaultSchedule;
+  });
 });
 
 btnCancel.addEventListener('click', () => {
