@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito</title>
+  <link rel="stylesheet" href="../CSS/catalog.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="../Html/Catalogo.html" class="logo">← Volver</a>
+    <h1>Carrito de Compras</h1>
+  </header>
+
+  <main class="container">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+
+    <div class="totals">
+      <p>Subtotal: ₡<span id="subtotal">0.00</span></p>
+      <p>IVA (13%): ₡<span id="iva">0.00</span></p>
+      <p class="total">Total: ₡<span id="total">0.00</span></p>
+      <button id="checkoutBtn">Finalizar Compra</button>
+    </div>
+  </main>
+
+  <script src="../JS/storage.js"></script>
+  <script src="../JS/cart.js"></script>
+</body>
+</html>

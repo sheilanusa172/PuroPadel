@@ -17,8 +17,9 @@ const classTime = document.getElementById('classTime');
 const classDescription = document.getElementById('classDescription');
 const classLevel = document.getElementById('classLevel');
 const classTrainer = document.getElementById('classTrainer');
+const classMaxUsers = document.getElementById('classMaxUsers');
 
-const trainers = ['Entrenador A', 'Entrenador B', 'Entrenador C']; // Lista simulada de entrenadores
+const trainers = ['Entrenador A', 'Entrenador B', 'Entrenador C'];
 
 function populateTrainers() {
   classTrainer.innerHTML = '';
@@ -57,6 +58,7 @@ classForm.addEventListener('submit', (e) => {
     description: classDescription.value,
     level: classLevel.value,
     trainer: classTrainer.value,
+    maxUsers: parseInt(classMaxUsers.value),
     participants: [],
     evaluation: "",
     status: "scheduled"
@@ -85,7 +87,7 @@ function renderClasses() {
       <p class="mb-2"><strong>Hora:</strong> ${cls.time}</p>
       <p class="mb-2"><strong>Nivel:</strong> ${cls.level}</p>
       <p class="mb-2"><strong>Entrenador:</strong> ${cls.trainer}</p>
-      <p class="mb-2"><strong>Participantes:</strong> ${cls.participants.length}</p>
+      <p class="mb-2"><strong>Participantes:</strong> ${cls.participants.length} / ${cls.maxUsers}</p>
       <p class="mb-2"><strong>Estado:</strong> ${formatStatus(cls.status)}</p>
       <div class="flex gap-2 mt-4">
         <button onclick="viewDetails(${cls.id})" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Ver Detalles</button>
@@ -107,9 +109,12 @@ function viewDetails(id) {
       <p><strong>Hora:</strong> ${cls.time}</p>
       <p><strong>Nivel:</strong> ${cls.level}</p>
       <p><strong>Entrenador:</strong> ${cls.trainer}</p>
+      <p><strong>Límite de alumnos:</strong> ${cls.maxUsers}</p>
       <div class="mt-4">
         <h4 class="text-lg font-bold">Participantes</h4>
-        ${cls.participants.length > 0 ? `<ul class="list-disc list-inside">${cls.participants.map(p => `<li>${p}</li>`).join('')}</ul>` : '<p class="text-gray-600">No hay participantes.</p>'}
+        ${cls.participants.length > 0
+          ? `<ul class="list-disc list-inside">${cls.participants.map(p => `<li>${p}</li>`).join('')}</ul>`
+          : '<p class="text-gray-600">No hay participantes.</p>'}
       </div>
       <div class="mt-4">
         <h4 class="text-lg font-bold">Evaluación</h4>
@@ -140,6 +145,7 @@ function editClass(id) {
     classLevel.value = cls.level;
     populateTrainers();
     classTrainer.value = cls.trainer;
+    classMaxUsers.value = cls.maxUsers;
     classModal.classList.remove('hidden');
   }
 }

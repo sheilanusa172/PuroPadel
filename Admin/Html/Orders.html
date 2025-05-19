@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Órdenes</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100 min-h-screen text-gray-900">
+
+  <div class="max-w-7xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Órdenes</h1>
+
+    <!-- Filtro -->
+    <div class="mb-6">
+      <select id="orderFilter" class="border p-3 rounded-xl">
+        <option value="all">Todas</option>
+        <option value="pending">Pendientes</option>
+        <option value="completed">Completadas</option>
+        <option value="cancelled">Canceladas</option>
+      </select>
+    </div>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white rounded-xl shadow-md">
+        <thead class="bg-blue-600 text-white">
+          <tr>
+            <th class="px-6 py-3 text-left">Cliente</th>
+            <th class="px-6 py-3 text-left">Artículos</th>
+            <th class="px-6 py-3 text-left">Cantidad</th>
+            <th class="px-6 py-3 text-left">Categoría</th>
+            <th class="px-6 py-3 text-left">Precio sin IVA</th>
+            <th class="px-6 py-3 text-left">Precio con IVA</th>
+            <th class="px-6 py-3 text-left">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody" class="divide-y divide-gray-200">
+          <!-- Filas se insertan por JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal de Registro de Pago -->
+  <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-40 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-xl p-6 w-full max-w-md">
+      <h2 class="text-xl font-bold mb-4">Registrar Código Sinpe</h2>
+      <form id="paymentForm" class="flex flex-col gap-4">
+        <input id="sinpeCode" type="text" placeholder="Código Sinpe (6 dígitos)" maxlength="6" pattern="\\d{6}" class="border p-3 rounded-xl" required />
+        <input id="paymentDate" type="date" class="border p-3 rounded-xl" required />
+        <div class="flex justify-end gap-2">
+          <button type="button" onclick="document.getElementById('paymentModal').classList.add('hidden')" class="px-4 py-2 border rounded-xl hover:bg-gray-100">Cancelar</button>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../JS/orders.js"></script>
+</body>
+</html>
