@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clases</title>
-  <link rel="stylesheet" href="/Usuario/CSS/Clase.css" />
+  <title>Quiénes Somos - Puro Pádel</title>
+  <link rel="stylesheet" href="/Usuario/CSS/QuienesSomos.css" />
 </head>
 <body>
   <div class="header">
@@ -43,40 +43,31 @@
   </div>
 
   <div class="content" id="main-content">
-    <h1>Clases disponibles</h1>
-    <section class="formulario">
-      <h2>Inscribirse en una clase</h2>
-      <form action="/reservar-clase" method="post">
-        <label for="fecha">Elige una fecha:</label>
-        <input type="date" id="fecha" name="fecha" required onchange="mostrarHorarios()">
+    <div class="logo-container">
+      <img src="/imagenes/PUROPADEL_LOGO_MINI-1920w.webp" alt="Logo Puro Pádel" class="logo">
+    </div>
 
-        <label for="profesor">Elige un profesor:</label>
-        <select id="profesor" name="profesor" onchange="mostrarHorarios()">
-          <option value="">Selecciona un profesor</option>
-          <option value="1">Profesor A</option>
-          <option value="2">Profesor B</option>
-        </select>
+    <section class="about">
+      <h1>Quiénes Somos</h1>
+      <p>
+        En <strong>Puro Pádel</strong> creemos que el deporte es mucho más que competencia. Fundado en 2021, nuestro centro nació con la visión de convertirnos en el punto de encuentro de todos los amantes del pádel en Costa Rica.
+      </p>
+      <p>
+        Contamos con instalaciones de primer nivel, entrenadores certificados a nivel internacional y un ambiente familiar y profesional para que tanto principiantes como jugadores avanzados puedan crecer y disfrutar del juego.
+      </p>
 
-        <div id="horariosDisponibles"></div>
-        <div id="precioClase"></div>
+      <h2>Misión</h2>
+      <p>
+        Fomentar la pasión por el pádel a través de formación de calidad, eventos dinámicos y experiencias que conectan a nuestra comunidad dentro y fuera de la cancha.
+      </p>
 
-        <label for="cantidad">Cantidad de participantes:</label>
-        <select id="cantidad" name="cantidad" onchange="mostrarParticipantes()">
-          <option value="">Selecciona cantidad</option>
-          <option value="1">1 participante</option>
-          <option value="2">2 participantes</option>
-          <option value="3">3 participantes</option>
-          <option value="4">4 participantes</option>
-        </select>
-
-        <div id="camposParticipantes"></div>
-        <div id="precioPorPersona"></div>
-
-        <button type="submit" class="btn">Reservar clase</button>
-      </form>
+      <h2>Visión</h2>
+      <p>
+        Ser reconocidos como el club de pádel líder en Latinoamérica por nuestro compromiso con la excelencia deportiva, la innovación y el desarrollo humano.
+      </p>
     </section>
   </div>
 
-  <script src="/Usuario/JS/Clases.js"></script>
+  <script src="/Usuario/JS/QuienesSomos.js"></script>
 </body>
 </html>

@@ -4,89 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Partido</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        main {
-            padding: 1rem;
-        }
-
-        section {
-            background: white;
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 0.5rem;
-            font-weight: bold;
-        }
-
-        input, select, textarea, button {
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            background-color: #f0f8ff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #007bff;
-            color: white;
-            margin-top: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../CSS/BuscarPartido.css">
 </head>
 <body>
     <header>
@@ -100,63 +18,62 @@
                 <input type="date" id="fecha" name="fecha" required>
                 
                 <label for="hora">Hora:</label>
-                <input type="time" id="hora" name="hora">
-                
+                <select id="hora" name="hora">
+                    <option value="">--Seleccionar hora--</option>
+                    <option value="06:00">06:00</option>
+                    <option value="06:30">06:30</option>
+                    <option value="07:00">07:00</option>
+                    <option value="07:30">07:30</option>
+                    <option value="08:00">08:00</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                    <option value="22:00">22:00</option>
+                    <option value="22:30">22:30</option>
+                    <option value="23:00">23:00</option>
+                </select>
+
                 <button type="submit">Buscar</button>
             </form>
         </section>
-        <section id="crear-sala">
-            <button id="btnCrearSala">Crear Sala</button>
-            <form id="crearSalaForm" style="display: none; margin-top: 1rem;">
-                <label for="nombreSala">Nombre de la Sala:</label>
-                <input type="text" id="nombreSala" name="nombreSala" placeholder="Nombre de la sala" required>
-                
-                <label for="fechaSala">Fecha:</label>
-                <input type="date" id="fechaSala" name="fechaSala" required>
-                
-                <label for="horaSala">Hora:</label>
-                <input type="time" id="horaSala" name="horaSala" required>
-                
-                <label for="nivelSala">Nivel:</label>
-                <select id="nivelSala" name="nivelSala" required>
-                    <option value="Principiante">Principiante</option>
-                    <option value="Intermedio">Intermedio</option>
-                    <option value="Avanzado">Avanzado</option>
-                </select>
-                
-                <label for="descripcionSala">Descripción:</label>
-                <textarea id="descripcionSala" name="descripcionSala" placeholder="Describe la sala..." rows="4" required></textarea>
-                
-                <button type="submit">Crear Sala</button>
-            </form>
-        </section>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const btnCrearSala = document.getElementById("btnCrearSala");
-                const crearSalaForm = document.getElementById("crearSalaForm");
-
-                btnCrearSala.addEventListener("click", () => {
-                    crearSalaForm.style.display = crearSalaForm.style.display === "none" ? "block" : "none";
-                });
-
-                crearSalaForm.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    const nombreSala = document.getElementById("nombreSala").value;
-                    const fechaSala = document.getElementById("fechaSala").value;
-                    const horaSala = document.getElementById("horaSala").value;
-                    const nivelSala = document.getElementById("nivelSala").value;
-                    const descripcionSala = document.getElementById("descripcionSala").value;
-
-                    alert(`Sala creada:\nNombre: ${nombreSala}\nFecha: ${fechaSala}\nHora: ${horaSala}\nNivel: ${nivelSala}\nDescripción: ${descripcionSala}`);
-                    crearSalaForm.reset();
-                    crearSalaForm.style.display = "none";
-                });
-            });
-        </script>
         <section id="partidos-disponibles">
             <h2>Partidos Disponibles</h2>
-            <div id="listaPartidos"></div>
+            <div id="listaPartidos">
+                <div class="card">
+                    <h3>Cancha Pública - Partido Abierto</h3>
+                    <p><strong>Nivel:</strong> <span class="nivel segunda">Segunda</span></p>
+                    <p><strong>Anfitrión:</strong> Laura Gutiérrez</p>
+                    <p><strong>Fecha:</strong> 2025-05-22</p>
+                    <p><strong>Hora:</strong> 19:00</p>
+                    <p><strong>Espacios disponibles:</strong> 2 / 4</p>
+                    <button onclick="alert('Te uniste al partido de Laura')">Unirse</button>
+                </div>
+            </div>
         </section>
 
         <section id="detalle-partido" style="display: none;">
@@ -177,58 +94,6 @@
         <p>&copy; 2023 Puro Pádel</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const listaPartidos = document.getElementById("listaPartidos");
-            const detallePartido = document.getElementById("detalle-partido");
-            const detalleInfo = document.getElementById("detalleInfo");
-            const solicitudForm = document.getElementById("solicitudForm");
-
-            // Simular datos de partidos creados
-            const partidos = [
-                { id: 1, nombre: "Partido de Amigos", anfitrion: "Juan Pérez", descripcion: "Partido amistoso para principiantes.", nivel: "Principiante", fecha: "2023-10-15", hora: "18:00" },
-                { id: 2, nombre: "Torneo Intermedio", anfitrion: "Ana López", descripcion: "Partido para jugadores intermedios.", nivel: "Intermedio", fecha: "2023-10-16", hora: "20:00" }
-            ];
-
-            // Renderizar los partidos como tarjetas
-            partidos.forEach(partido => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.innerHTML = `
-                    <h3>${partido.nombre}</h3>
-                    <p><strong>Fecha:</strong> ${partido.fecha}</p>
-                    <p><strong>Hora:</strong> ${partido.hora}</p>
-                    <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
-                `;
-                card.addEventListener("click", () => {
-                    mostrarDetalle(partido);
-                });
-                listaPartidos.appendChild(card);
-            });
-
-            // Mostrar detalle del partido
-            function mostrarDetalle(partido) {
-                detalleInfo.innerHTML = `
-                    <h3>${partido.nombre}</h3>
-                    <p><strong>Fecha:</strong> ${partido.fecha}</p>
-                    <p><strong>Hora:</strong> ${partido.hora}</p>
-                    <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
-                    <p><strong>Nivel:</strong> ${partido.nivel}</p>
-                    <p>${partido.descripcion}</p>
-                `;
-                detallePartido.style.display = "block";
-                window.scrollTo(0, detallePartido.offsetTop);
-            }
-
-            // Manejar envío del formulario de solicitud
-            solicitudForm.addEventListener("submit", (event) => {
-                event.preventDefault();
-                const nombreSolicitante = document.getElementById("nombreSolicitante").value;
-                const mensajeSolicitud = document.getElementById("mensajeSolicitud").value;
-                alert(`Solicitud enviada por: ${nombreSolicitante}\nMensaje: ${mensajeSolicitud}`);
-                solicitudForm.reset();
-            });
-        });
-    </script>
+    <script src="../JS/BuscarPartido.js"></script>
 </body>
 </html>

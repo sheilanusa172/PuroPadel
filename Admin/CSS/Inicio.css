@@ -175,7 +175,9 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.form-container input, .form-container textarea, .form-container button {
+.form-container input,
+.form-container textarea,
+.form-container button {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
@@ -275,7 +277,7 @@ body {
   color: #888;
 }
 
-
+/* Likes */
 .like-container {
   display: flex;
   align-items: center;
@@ -300,5 +302,3 @@ body {
   font-size: 14px;
   color: #555;
 }
-
-
