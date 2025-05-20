@@ -1,164 +1,189 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
 }
 
-.titulo {
-    text-align: center;
-    color: #26468B;
-    font-size: 28px;
-    margin-bottom: 20px;
+header {
+  background-color: #26468B;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
+/* Navegación de la semana */
 .semana-navegacion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.dias-semana {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.dias-semana button {
-    padding: 10px 15px;
-    background-color: #26468B;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.dias-semana button.active {
-    background-color: #1a3366;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .semana-navegacion button {
-    background-color: #26468B;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 5px;
+  background-color: #26468B;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
 }
 
+/* Días de la semana */
+.dias-semana {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dias-semana button {
+  padding: 10px 15px;
+  background-color: #26468B;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dias-semana button.active {
+  background-color: #1a3366;
+}
+
+/* Selector horario */
 .selector-horario {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .selector-horario select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
+/* Grid de canchas */
 .cancha-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .cancha {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .cancha-btn {
-    border: none;
-    background: none;
-    padding: 0;
-    width: 100%;
-    cursor: pointer;
-    position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
 }
 
 .cancha video {
-    width: 100%;
-    display: block;
-    filter: brightness(0.8);
-    transition: transform 0.3s ease;
+  width: 100%;
+  display: block;
+  filter: brightness(0.8);
+  transition: transform 0.3s ease;
 }
 
 .cancha .overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0,0,0,0.6);
-    width: 100%;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+/* Mensaje de no disponibilidad */
 .mensaje {
-    text-align: center;
-    color: red;
-    font-size: 18px;
-    margin-bottom: 20px;
+  text-align: center;
+  color: red;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-/* Modal */
+/* Modal y Overlays */
 .reserva-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .reserva-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 300px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    position: relative;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  position: relative;
 }
 
 .reservar-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #26468B;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #26468B;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.reservar-btn:hover {
+  background-color: #1b3566;
 }
 
 .cerrar-modal {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #333;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Botones de modo público/privado */
+.modo-btn {
+  background-color: #e1edf7;
+  border: 1px solid #26468B;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.modo-btn:hover {
+  background-color: #d2e5f4;
 }

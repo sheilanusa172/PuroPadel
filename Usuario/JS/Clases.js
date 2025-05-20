@@ -1,18 +1,15 @@
 const sidebar = document.getElementById('sidebar');
 const content = document.getElementById('main-content');
 
-// Toggle sidebar
+// Sidebar toggle
 document.getElementById('menu-toggle').addEventListener('click', () => {
-  if (sidebar.style.left === '-250px') {
-    sidebar.style.left = '0';
-    if (content) content.style.marginLeft = '250px';
-  } else {
-    sidebar.style.left = '-250px';
-    if (content) content.style.marginLeft = '0';
-  }
+  const body = document.body;
+  const isOpen = body.classList.contains("sidebar-open");
+  body.classList.toggle("sidebar-open");
+  sidebar.style.left = isOpen ? '-250px' : '0';
 });
 
-// Notificaciones
+// Dropdowns
 document.getElementById('notification-btn').addEventListener('click', () => {
   const notiMenu = document.getElementById('notification-menu');
   const profileMenu = document.getElementById('profile-menu');
@@ -20,7 +17,6 @@ document.getElementById('notification-btn').addEventListener('click', () => {
   if (profileMenu) profileMenu.style.display = 'none';
 });
 
-// Perfil
 document.getElementById('profile-btn').addEventListener('click', () => {
   const profileMenu = document.getElementById('profile-menu');
   const notiMenu = document.getElementById('notification-menu');
@@ -28,7 +24,6 @@ document.getElementById('profile-btn').addEventListener('click', () => {
   if (notiMenu) notiMenu.style.display = 'none';
 });
 
-// Cerrar sidebar y menús al hacer clic fuera
 document.addEventListener('click', (e) => {
   const notiBtn = document.getElementById('notification-btn');
   const profileBtn = document.getElementById('profile-btn');
@@ -43,9 +38,93 @@ document.addEventListener('click', (e) => {
   if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
     profileMenu.style.display = 'none';
   }
-
-  if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
-    sidebar.style.left = '-250px';
-    if (content) content.style.marginLeft = '0';
-  }
 });
+
+// Datos horarios y precios
+const horariosDisponibles = {
+  '1': {
+   '2025-05-19': ['10:30 AM - 11:30 AM', '02:00 PM - 03:00 PM'],
+    '2025-05-21': ['11:00 AM - 12:00 PM', '04:00 PM - 05:00 PM'],
+     '2025-05-22': ['11:00 AM - 12:00 PM', '04:00 PM - 05:00 PM'],
+      '2025-05-27': ['11:00 AM - 12:00 PM', '04:00 PM - 05:00 PM']
+  },
+  '2': {
+    '2025-05-18': ['10:30 AM - 11:30 AM', '02:00 PM - 03:00 PM'],
+    '2025-05-21': ['11:00 AM - 12:00 PM', '04:00 PM - 05:00 PM'],
+     '2025-05-25': ['1:00 PM - 2:00 PM', '04:00 PM - 05:00 PM'],
+      '2025-05-29': ['11:00 AM - 12:00 PM', '06:00 PM - 07:00 PM']
+  }
+};
+
+const precios = {
+  '1': 50,
+  '2': 60
+};
+
+function mostrarHorarios() {
+  const profesor = document.getElementById('profesor').value;
+  const fecha = document.getElementById('fecha').value;
+  const horariosDiv = document.getElementById('horariosDisponibles');
+  const precioDiv = document.getElementById('precioClase');
+
+  horariosDiv.innerHTML = '';
+  precioDiv.innerHTML = '';
+
+  if (precios[profesor]) {
+    precioDiv.textContent = `Precio base del profesor: $${precios[profesor]} USD`;
+  }
+
+  if (horariosDisponibles[profesor] && horariosDisponibles[profesor][fecha]) {
+    const select = document.createElement('select');
+    select.id = 'horarioSeleccionado';
+    horariosDisponibles[profesor][fecha].forEach(horario => {
+      const option = document.createElement('option');
+      option.value = horario;
+      option.textContent = horario;
+      select.appendChild(option);
+    });
+    horariosDiv.appendChild(select);
+  } else {
+    const p = document.createElement('p');
+    p.textContent = 'No hay horarios disponibles para la fecha seleccionada.';
+    horariosDiv.appendChild(p);
+  }
+}
+
+function mostrarParticipantes() {
+  const cantidad = parseInt(document.getElementById('cantidad').value);
+  const camposDiv = document.getElementById('camposParticipantes');
+  const precioDiv = document.getElementById('precioPorPersona');
+  camposDiv.innerHTML = '';
+  precioDiv.innerHTML = '';
+
+  if (cantidad > 0) {
+    if (cantidad === 1) {
+      const p = document.createElement('p');
+      camposDiv.appendChild(p);
+    } else {
+      for (let i = 2; i <= cantidad; i++) {
+        const label = document.createElement('label');
+        label.textContent = `Nombre del participante ${i}:`;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = `participante${i}`;
+        input.required = true;
+
+        camposDiv.appendChild(label);
+        camposDiv.appendChild(input);
+      }
+    }
+
+    let precioFinal = 0;
+    switch (cantidad) {
+      case 1: precioFinal = 60; break;
+      case 2: precioFinal = 50; break;
+      case 3: precioFinal = 40; break;
+      case 4: precioFinal = 30; break;
+    }
+
+    precioDiv.textContent = `Precio por persona: $${precioFinal} USD`;
+  }
+}

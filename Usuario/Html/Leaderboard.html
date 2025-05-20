@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title></title>
+  <title>Leaderboard</title>
   <link rel="stylesheet" href="/Usuario/CSS/Leaderboard.css" />
 </head>
 <body>
@@ -13,13 +13,13 @@
       <button id="notification-btn" class="header-btn">
         <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
       </button>
-      <div class="dropdown" id="notification-menu" style="display: none;">
+      <div class="dropdown" id="notification-menu">
         <p>No tienes nuevas notificaciones.</p>
       </div>
       <button id="profile-btn" class="header-btn">
         <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="profile-pic-small" />
       </button>
-      <div class="dropdown" id="profile-menu" style="display: none;">
+      <div class="dropdown" id="profile-menu">
         <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
         <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
       </div>
@@ -40,73 +40,26 @@
       <li><a href="Calendario.html">Calendario</a></li>
       <li><a href="CerrarSesion.html">Cerrar Sesión</a></li>
     </ul>
+  </div>
 
-    <h1>🏆 Leaderboard - Puro Padel</h1>
+  <div class="content" id="main-content">
+    <h1>🏆 Leaderboard - Puro Pádel</h1>
 
-    <!-- Tabla de posiciones -->
-    <section>
-        <h2>Ranking de Jugadores</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Posición</th> 
-                    <th>Jugador</th>
-                    <th>Victorias</th>
-                    <th>Derrotas</th>
-                    <th>Torneos Jugados</th>
-                    <th>Torneos Ganados</th>
-                    <th>Porcentaje de Éxito</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><a href="#">Juan Pérez</a></td>
-                    <td>12</td>
-                    <td>3</td>
-                    <td>6</td>
-                    <td>8</td>
-                    <td>90%</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="#">Carlos Ramírez</a></td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>7</td>
-                    <td>6</td>
-                    <td>85%</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><a href="#">Diego Fernández</a></td>
-                    <td>9</td>
-                    <td>6</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>78%</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><a href="#">Luis Gómez</a></td>
-                    <td>8</td>
-                    <td>7</td>
-                    <td>7</td>
-                    <td>5</td>
-                    <td>74%</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td><a href="#">Andrés López</a></td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>6</td>
-                    <td>1</td>
-                    <td>47%</td>
-                </tr>
-            </tbody>
-        </table>
+    <section class="tabla-ranking">
+      <label for="categoria">Filtrar por categoría:</label>
+      <select id="categoria" onchange="filtrarCategoria()">
+        <option value="libre">Libre</option>
+        <option value="primera">Primera</option>
+        <option value="segunda">Segunda</option>
+        <option value="tercera">Tercera</option>
+        <option value="cuarta">Cuarta</option>
+      </select>
+
+      <h2 id="tituloCategoria">Ranking - Todos los jugadores</h2>
+      <div id="tablaContainer"></div>
     </section>
-    <script src="/Usuario/JS/Leaderboard.js"></script>
+  </div>
+
+  <script src="/Usuario/JS/Leaderboard.js"></script>
 </body>
 </html>

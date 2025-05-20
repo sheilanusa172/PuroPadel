@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profesores</title>
-  <link rel="stylesheet" href="/Usuario/CSS/Pofesores.css" />
+  <link rel="stylesheet" href="/Usuario/CSS/Profesores.css" />
 </head>
 <body>
   <div class="header">
@@ -13,13 +13,13 @@
       <button id="notification-btn" class="header-btn">
         <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
       </button>
-      <div class="dropdown" id="notification-menu" style="display: none;">
+      <div class="dropdown" id="notification-menu">
         <p>No tienes nuevas notificaciones.</p>
       </div>
       <button id="profile-btn" class="header-btn">
         <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="profile-pic-small" />
       </button>
-      <div class="dropdown" id="profile-menu" style="display: none;">
+      <div class="dropdown" id="profile-menu">
         <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
         <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
       </div>
@@ -39,32 +39,32 @@
       <li><a href="/Usuario/Html/CatalogodeProductos.html">Catálogo de Productos</a></li>
       <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
       <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
-  </ul>
+    </ul>
   </div>
 
   <div class="content" id="main-content">
-    <h1>Bienvenido</h1>
-    <p>Este es un ejemplo de contenido en la vista general.</p>
-  </div>
-        <img src="/imagenes/Jose Maria Garcias.webp"  style="width:200px;height:auto;">
+    <h1>Nuestros Profesores</h1>
+    <div class="profesores-container">
+      <div class="profesor-card">
+        <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose María García" />
         <h2>Jose María García</h2>
-        <p>La pasión por el pádel me persigue desde los 8 años.
-            Con 15 años de experiencia en las mejores academias de alto rendimiento a nivel mundial, certificación de entrenador profesional por la Federación Española de pádel, experiencia en más de 10 países como entrenador, jugador profesional por 4 años con mejor ranking mundial World Padel Tour #102 en 2023 y bicampeon de España.
-            Miembro del cuerpo técnico de Puro Pádel Aleste y director de la academia de alto rendimiento.
-            Sea cual sea tu objetivo, analizaremos tus puntos fuertes y débiles y, diseñaremos un planing específico adaptado para que alcances tus objetivos disfrutando del proceso.</p>
-        <a href="/Usuario/Html/Clases.html">Reservar clase</a>
-    </div>
-</body>
+        <p>
+          15 años de experiencia en academias de alto rendimiento, entrenador certificado por la Federación Española de Pádel, ex jugador profesional con ranking #102 World Padel Tour (2023) y bicampeón de España. Actual director de la academia de alto rendimiento.
+        </p>
+        <a href="/Usuario/Html/Clases.html" class="btn">Reservar clase</a>
+      </div>
 
-<div>
-    <img src="/imagenes/Manuel Yuste.webp"  style="width:200px;height:auto;">
-    <h2>Manuel Yuste</h2>
-    <p>Pasión y dedicación me caracterizan cuando hablamos de PÁDEL.
-        Descrubrí el pádel después de haber jugado al tenis de forma profesional, y puedo decir que en solo dos años ya estaba dentro del circuito profesional WORLD PADEL TOUR. Desde ese momento empecé a formarme a través de la Federación Española y en una de las mejores academias del mundo Diagonal Pádel Academy.
-        En 2023 conseguí mi mejor ranking mundial 108. Y tras haber vivido el pádel profesional de forma tan cercana he podido desprender todos mis conocimientos en el resto de mundo, y ahora tengo la motivación de poder elevar la participación y el nivel en COSTA RICA.
-        Te esperamos en la Academia Puro Pádel para incrementar tu nivel y emoción por este deporte.</p>
-    <a href="/Usuario/Html/Clases.html">Reservar clase</a>
-    <script src="/Usuario/JS/Vista.js"></script>
-</div>
+      <div class="profesor-card">
+        <img src="/imagenes/Manuel Yuste.webp" alt="Manuel Yuste" />
+        <h2>Manuel Yuste</h2>
+        <p>
+          Ex tenista profesional, ingresó al World Padel Tour en dos años. Formación en la Diagonal Pádel Academy. Ranking #108 en 2023. Ahora enfocado en hacer crecer el nivel del pádel en Costa Rica con la academia Puro Pádel.
+        </p>
+        <a href="/Usuario/Html/Clases.html" class="btn">Reservar clase</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/Usuario/JS/Profesores.js"></script>
 </body>
 </html>

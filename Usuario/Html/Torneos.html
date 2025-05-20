@@ -1,183 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title></title>
-  <link rel="stylesheet" href="/Usuario/CSS/Torneo.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneos</title>
+    <link rel="stylesheet" href="../CSS/Torneos.css">
 </head>
 <body>
-  <div class="header">
-    <button id="menu-toggle" class="menu-toggle">☰</button>
-    <div class="right-icons">
-      <button id="notification-btn" class="header-btn">
-        <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
-      </button>
-      <div class="dropdown" id="notification-menu" style="display: none;">
-        <p>No tienes nuevas notificaciones.</p>
-      </div>
-      <button id="profile-btn" class="header-btn">
-        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="profile-pic-small" />
-      </button>
-      <div class="dropdown" id="profile-menu" style="display: none;">
-        <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
-        <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
-      </div>
-    </div>
-  </div>
+    <header>
+        <h1>Torneos</h1>
+    </header>
 
-  <div class="sidebar" id="sidebar">
-    <ul>
-        <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
-        <li><a href="/Usuario/Html/ReservarCancha.html">Reservar Cancha</a></li>
-        <li><a href="/Usuario/Html/BuscarPartido.html">Buscar Partido</a></li>
-        <li><a href="/Usuario/Html/QuienesSomos.html">Quiénes Somos</a></li>
-        <li><a href="/Usuario/Html/Profesores.html">Profesores</a></li>
-        <li><a href="/Usuario/Html/Clases.html">Clases</a></li>
-        <li><a href="/Usuario/Html/Torneos.html">Torneos</a></li>
-        <li><a href="/Usuario/Html/Leaderboard.html">Leaderboard</a></li>
-        <li><a href="/Usuario/Html/CatalogodeProductos.html">Catálogo de Productos</a></li>
-        <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
-        <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
-    </ul>
-  </div>
+    <main>
+        <section class="torneo-form-section">
+            <h2>Crear Torneo</h2>
+            <form id="formTorneo" class="torneo-form">
+                <div class="step" id="step1">
+                    <label>Nombre del Torneo:</label>
+                    <input type="text" id="nombreTorneo" required>
+                </div>
 
-    <h1>Torneos</h1>
+                <div class="step" id="step2" style="display: none;">
+                    <label>Cantidad de Jugadores:</label>
+                    <input type="number" id="cantidadJugadores" min="2" required>
+                </div>
 
-    <!-- Barra de búsqueda -->
-    <section>
-        <h2>Buscar Torneos</h2>
-        <input type="text" id="busqueda" placeholder="Buscar torneos..." oninput="filtrarTorneos()">
-        <label for="filtro-visibilidad">Filtrar por visibilidad:</label>
-        <select id="filtro-visibilidad" onchange="filtrarTorneos()">
-            <option value="todos">Todos</option>
-            <option value="publico">Público</option>
-            <option value="privado">Privado</option>
-        </select>
-    </section>
-    <!-- Formulario para detalles del torneo -->
-    <section>
-        <h2>Crear Torneo</h2>
-        <form id="form-torneo">
-            <label for="nombre">Nombre del Torneo:</label>
-            <input type="text" id="nombre" name="nombre" required>
-    
-            <label for="participantes">Número de Participantes:</label>
-            <input type="number" id="participantes" name="participantes" required>
-    
-            <label for="categoria">Categoría:</label>
-            <input type="text" id="categoria" name="categoria" required>
-    
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" name="hora" required>
-    
-            <label for="formato">Formato:</label>
-            <input type="text" id="formato" name="formato" required>
-    
-            <label for="visibilidad">Visibilidad:</label>
-            <select id="visibilidad" name="visibilidad">
-                <option value="publico">Público</option>
-                <option value="privado">Privado</option>
-            </select>
-    
-            <!-- Nuevo campo para la foto -->
-            <label for="foto">Foto del Torneo:</label>
-            <input type="file" id="foto" name="foto" accept="image/*">
-    
-            <!-- Nuevo campo para la descripción -->
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-    
-            <button type="submit">Guardar Torneo</button>
-        </form>
-    </section>
+                <div class="step" id="step3" style="display: none;">
+                    <label>Número de Canchas a Reservar (máx. 8):</label>
+                    <input type="number" id="numeroCanchas" min="1" max="8" required>
+                    <div id="zonaCanchas" class="canchas-container"></div>
+                </div>
 
-    <section>
-        <h2>Ejemplo de Torneo</h2>
-        <div class="torneo-card" onclick="expandirTorneo(this)">
-            <h3>Torneo de Ejemplo</h3>
-            <p>Categoría: Avanzados</p>
-            <p>Participantes: 16</p>
-            <p>Visibilidad: Público</p>
-            <div class="detalles-torneo" style="display: none;">
-                <p>Hora: 10:00 AM</p>
-                <p>Formato: Eliminación directa</p>
-                <p>Descripción: Este es un torneo de ejemplo para mostrar cómo se vería una tarjeta expandida.</p>
-                <button onclick="verResultados(event)">Ver Resultados</button>
-            </div>
-        </div>
-    </section>
+                <div class="step" id="step4" style="display: none;">
+                    <label>Horas a Reservar:</label>
+                    <input type="number" id="horasReservar" min="1" required>
+                </div>
 
-    <style>
-        .torneo-card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 16px 0;
-            cursor: pointer;
-            transition: box-shadow 0.3s;
-        }
+                <div class="step" id="step5" style="display: none;">
+                    <label>Premios (opcional):</label>
+                    <input type="text" id="premios">
+                </div>
 
-        .torneo-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+                <div class="step" id="step6" style="display: none;">
+                    <label>Descripción del Torneo:</label>
+                    <textarea id="descripcionTorneo" rows="4" required></textarea>
+                </div>
 
-        .detalles-torneo {
-            margin-top: 16px;
-            background-color: #f9f9f9;
-            padding: 12px;
-            border-radius: 8px;
-        }
+                <div class="step" id="step7" style="display: none;">
+                    <label>Tipo de Torneo:</label>
+                    <select id="tipoTorneo" required>
+                        <option value="">Selecciona uno</option>
+                        <option value="Round Robin">Round Robin</option>
+                        <option value="Eliminación directa">Eliminación directa</option>
+                        <option value="Doble eliminación">Doble eliminación</option>
+                        <option value="Todos contra todos">Todos contra todos</option>
+                        <option value="Suizo">Suizo</option>
+                    </select>
+                </div>
 
-        .detalles-torneo button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+                <div class="step" id="step8" style="display: none;">
+                    <label>Categoría:</label>
+                    <select id="categoria" required>
+                        <option value="">Selecciona una</option>
+                        <option value="Primera">Primera</option>
+                        <option value="Segunda">Segunda</option>
+                        <option value="Tercera">Tercera</option>
+                        <option value="Cuarta">Cuarta</option>
+                        <option value="Iniciación">Iniciación</option>
+                        <option value="Libre">Libre</option>
+                    </select>
+                </div>
 
-        .detalles-torneo button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+                <div class="step" id="step9" style="display: none;">
+                    <label>Privacidad:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="privacidad" value="publico" checked> Público</label>
+                        <label><input type="radio" name="privacidad" value="privado"> Privado (genera código)</label>
+                    </div>
+                </div>
 
-    <script>
-        function filtrarTorneos() {
-            const busqueda = document.getElementById('busqueda').value.toLowerCase();
-            const filtroVisibilidad = document.getElementById('filtro-visibilidad').value;
-            const torneos = document.querySelectorAll('#lista-torneos li');
+                <div class="step" id="step10" style="display: none;">
+                    <div id="codigoPrivado" style="display: none;">
+                        <label>Código generado:</label>
+                        <input type="text" id="codigoGenerado" readonly>
+                    </div>
+                    <button type="submit">Crear Torneo</button>
+                </div>
+            </form>
+        </section>
 
-            torneos.forEach(torneo => {
-                const nombre = torneo.textContent.toLowerCase();
-                const visibilidad = torneo.getAttribute('data-visibilidad');
+        <section class="unirse-torneo">
+            <h2>Unirse a Torneo</h2>
+            <!-- Torneos públicos aparecerán aquí -->
+        </section>
+    </main>
 
-                if (
-                    (nombre.includes(busqueda)) &&
-                    (filtroVisibilidad === 'todos' || visibilidad === filtroVisibilidad)
-                ) {
-                    torneo.style.display = '';
-                } else {
-                    torneo.style.display = 'none';
-                }
-            });
-        }
-
-        function expandirTorneo(card) {
-            const detalles = card.querySelector('.detalles-torneo');
-            if (detalles.style.display === 'none') {
-                detalles.style.display = 'block';
-            } else {
-                detalles.style.display = 'none';
-            }
-        }
-
-        function verResultados(event) {
-            event.stopPropagation(); // Evita que el evento de clic se propague al contenedor
-            window.location.href = 'resultados.html';
-        }
-    </script>
- <script src="/Usuario/JS/Torneo"></script>
+    <script src="../JS/Torneos.js"></script>
 </body>
 </html>
