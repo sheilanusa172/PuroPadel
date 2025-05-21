@@ -64,6 +64,63 @@ const horariosEjemplo = {
     { "id": 4, "hora": "21:00" },
     { "id": 5, "hora": "21:00" }
   ],
+  "2025-05-22": [
+    { "id": 2, "hora": "6:00" },
+    { "id": 5, "hora": "6:00" },
+    { "id": 3, "hora": "6:00" },
+    { "id": 5, "hora": "7:00" },
+    { "id": 2, "hora": "7:00" },
+    { "id": 8, "hora": "7:00" },
+    { "id": 3, "hora": "7:00" },
+    { "id": 4, "hora": "7:00" },
+    { "id": 1, "hora": "8:00" },
+    { "id": 5, "hora": "8:00" },
+    { "id": 4, "hora": "8:00" },
+    { "id": 3, "hora": "8:00" },
+    { "id": 8, "hora": "9:00" },
+    { "id": 1, "hora": "9:00" },
+    { "id": 2, "hora": "9:00" },
+    { "id": 3, "hora": "9:00" },
+    { "id": 4, "hora": "9:00" },
+    { "id": 6, "hora": "9:00" },
+    { "id": 6, "hora": "10:00" },
+    { "id": 8, "hora": "10:00" },
+    { "id": 1, "hora": "10:00" },
+    { "id": 7, "hora": "12:00" },
+    { "id": 3, "hora": "12:00" },
+    { "id": 5, "hora": "13:00" },
+    { "id": 1, "hora": "13:00" },
+    { "id": 2, "hora": "13:00" },
+    { "id": 4, "hora": "13:00" },
+    { "id": 1, "hora": "14:00" },
+    { "id": 2, "hora": "14:00" },
+    { "id": 5, "hora": "14:00" },
+    { "id": 6, "hora": "14:00" },
+    { "id": 1, "hora": "15:00" },
+    { "id": 2, "hora": "15:00" },
+    { "id": 3, "hora": "15:00" },
+    { "id": 4, "hora": "15:00" },
+    { "id": 6, "hora": "16:00" },
+    { "id": 7, "hora": "16:00" },
+    { "id": 8, "hora": "16:00" },
+    { "id": 2, "hora": "16:00" },
+    { "id": 3, "hora": "17:00" },
+    { "id": 4, "hora": "17:00" },
+    { "id": 5, "hora": "17:00" },
+    { "id": 6, "hora": "18:00" },
+    { "id": 1, "hora": "18:00" },
+    { "id": 2, "hora": "18:00" },
+    { "id": 3, "hora": "19:00" },
+    { "id": 4, "hora": "19:00" },
+    { "id": 5, "hora": "19:00" },
+    { "id": 8, "hora": "19:00" },
+    { "id": 6, "hora": "20:00" },
+    { "id": 1, "hora": "20:00" },
+    { "id": 2, "hora": "20:00" },
+    { "id": 3, "hora": "21:00" },
+    { "id": 4, "hora": "21:00" },
+    { "id": 5, "hora": "21:00" }
+  ],
   // ...
   // Agregaremos los demás días igual si querés (martes a domingo)
 };
@@ -123,9 +180,15 @@ function mostrarCanchasDisponibles(fecha) {
   canchaContenedor.innerHTML = '';
   mensaje.textContent = '';
 
-  const disponibles = horaSeleccionada
-    ? canchas.filter(c => c.hora === horaSeleccionada)
-    : canchas;
+ const disponibles = horaSeleccionada
+  ? canchas.filter(c => c.hora === horaSeleccionada)
+  : canchas;
+
+// ORDENAR POR HORA Y LUEGO POR ID DE CANCHA
+disponibles.sort((a, b) => {
+  if (a.hora === b.hora) return a.id - b.id;
+  return a.hora.localeCompare(b.hora);
+});
 
   if (disponibles.length === 0) {
     mensaje.textContent = "No hay canchas disponibles para este horario.";

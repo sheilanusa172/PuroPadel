@@ -7,18 +7,48 @@
     <link rel="stylesheet" href="../CSS/BuscarPartido.css">
 </head>
 <body>
-    <header>
-        <h1>Buscar Partido de Pádel</h1>
-    </header>
+      <div class="header">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <div class="right-icons">
+            <button id="notification-btn" class="header-btn">
+                <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="notification-menu" style="display: none;">
+                <p>No tienes nuevas notificaciones.</p>
+            </div>
+            <button id="profile-btn" class="header-btn">
+                <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic-small">
+            </button>
+            <div class="dropdown" id="profile-menu" style="display: none;">
+                <a href="Perfil.html">Mi perfil</a>
+                <a href="Ajustes.html">Configuraciones</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="ReservarCancha.html">Reservar Cancha</a></li>
+            <li><a href="BuscarPartido.html">Buscar Partido</a></li>
+            <li><a href="Clases.html">Clases</a></li>
+            <li><a href="Profesores.html">Profesores</a></li>
+            <li><a href="Leaderboard.html">Leaderboard</a></li>
+            <li><a href="Torneos.html">Torneos</a></li>
+            <li><a href="Catalogo.html">Catálogo</a></li>
+            <li><a href="QuienesSomos.html">Quiénes Somos</a></li>
+        </ul>
+    </div>
+
     <main>
         <section id="buscar-partido">
             <h2>Buscar Partido</h2>
             <form id="buscarForm">
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
-                
+
                 <label for="hora">Hora:</label>
-                <select id="hora" name="hora">
+                <select id="hora" name="hora" required>
                     <option value="">--Seleccionar hora--</option>
                     <option value="06:00">06:00</option>
                     <option value="06:30">06:30</option>
@@ -56,7 +86,6 @@
                     <option value="22:30">22:30</option>
                     <option value="23:00">23:00</option>
                 </select>
-
                 <button type="submit">Buscar</button>
             </form>
         </section>
@@ -64,32 +93,38 @@
         <section id="partidos-disponibles">
             <h2>Partidos Disponibles</h2>
             <div id="listaPartidos">
-                <div class="card">
+                <div class="card" data-tipo="publico">
                     <h3>Cancha Pública - Partido Abierto</h3>
                     <p><strong>Nivel:</strong> <span class="nivel segunda">Segunda</span></p>
                     <p><strong>Anfitrión:</strong> Laura Gutiérrez</p>
                     <p><strong>Fecha:</strong> 2025-05-22</p>
                     <p><strong>Hora:</strong> 19:00</p>
                     <p><strong>Espacios disponibles:</strong> 2 / 4</p>
-                    <button onclick="alert('Te uniste al partido de Laura')">Unirse</button>
+                    <button class="btn-unirse">Unirse</button>
+                </div>
+
+                <div class="card" data-tipo="privado" data-codigo="1234">
+                    <h3>Cancha Privada - Partido con Código</h3>
+                    <p><strong>Nivel:</strong> <span class="nivel segunda">Segunda</span></p>
+                    <p><strong>Anfitrión:</strong> Marcos Pérez</p>
+                    <p><strong>Fecha:</strong> 2025-05-22</p>
+                    <p><strong>Hora:</strong> 20:00</p>
+                    <p><strong>Espacios disponibles:</strong> 1 / 4</p>
+                    <button class="btn-unirse">Unirse</button>
                 </div>
             </div>
         </section>
-
-        <section id="detalle-partido" style="display: none;">
-            <h2>Detalle del Partido</h2>
-            <div id="detalleInfo"></div>
-            <form id="solicitudForm">
-                <label for="nombreSolicitante">Tu Nombre:</label>
-                <input type="text" id="nombreSolicitante" name="nombreSolicitante" placeholder="Tu nombre completo" required>
-                
-                <label for="mensajeSolicitud">Mensaje para el anfitrión:</label>
-                <textarea id="mensajeSolicitud" name="mensajeSolicitud" placeholder="Escribe un mensaje para el anfitrión..." rows="4"></textarea>
-                
-                <button type="submit">Enviar Solicitud</button>
-            </form>
-        </section>
     </main>
+
+    <div class="modal" id="modalSolicitud">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <h3>Solicitar Unirse al Partido</h3>
+            <textarea id="comentario" placeholder="Escribe un mensaje para el anfitrión..."></textarea>
+            <button id="enviarSolicitud">Enviar Solicitud</button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2023 Puro Pádel</p>
     </footer>

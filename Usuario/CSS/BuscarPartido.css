@@ -13,22 +13,120 @@ html, body {
     flex-direction: column;
 }
 
-/* Eliminar subrayado predeterminado */
 a, span, p, h1, h2, h3, label {
     text-decoration: none;
 }
 
-header {
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #26468B;
     color: white;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 1500;
 }
 
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-pic-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 180px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #26468B;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+/* SIDEBAR EXACTO COMO INICIO */
+.sidebar {
+    width: 300px;
+    position: fixed;
+    top: 60px;
+    left: -300px;
+    height: 100vh;
+    background-color: #26468B;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.55s ease;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.sidebar ul li a:hover {
+    border-bottom: 2px solid white;
+    background-color: #000;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* MAIN */
 main {
     flex: 1;
-    padding: 2rem 1rem;
+    padding: 100px 20px 20px 20px;
     max-width: 900px;
     margin: auto;
     width: 100%;
@@ -94,6 +192,7 @@ button:hover {
     transform: scale(1.03);
 }
 
+/* CARDS DE PARTIDOS */
 .card {
     border: 1px solid #ccc;
     border-radius: 16px;
@@ -109,7 +208,7 @@ button:hover {
     transform: translateY(-3px);
 }
 
-/* Etiqueta de nivel */
+/* Nivel del jugador */
 .nivel {
     font-weight: bold;
     padding: 0.2rem 0.6rem;
@@ -123,11 +222,53 @@ button:hover {
     color: #000;
 }
 
+/* FOOTER SIN COLOR AZUL */
 footer {
     text-align: center;
     padding: 1.5rem 0;
-    background-color: #26468B;
-    color: white;
-    margin-top: auto;
+    background-color: transparent;
+    color: #333;
     font-size: 0.95rem;
+    margin-top: auto;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-contenido textarea {
+    width: 100%;
+    height: 100px;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 1rem;
+}
+
+.cerrar {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

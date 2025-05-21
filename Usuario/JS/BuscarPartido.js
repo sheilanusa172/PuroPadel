@@ -1,46 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const solicitudForm = document.getElementById("solicitudForm");
-    const detallePartido = document.getElementById("detalle-partido");
-    const detalleInfo = document.getElementById("detalleInfo");
+    const buscarForm = document.getElementById("buscarForm");
+    const modal = document.getElementById("modalSolicitud");
+    const cerrar = document.querySelector(".cerrar");
+    const comentario = document.getElementById("comentario");
+    const enviarSolicitud = document.getElementById("enviarSolicitud");
 
-    // Simulación: datos de partido estático (el mismo mostrado en el HTML)
-    const partidoEjemplo = {
-        nombre: "Cancha Pública - Partido Abierto",
-        nivel: "Intermedio",
-        anfitrion: "Laura Gutiérrez",
-        fecha: "2025-05-22",
-        hora: "19:00",
-        descripcion: "Partido para nivel intermedio. Se buscan 2 jugadores para completar el grupo."
-    };
+    const sidebar = document.getElementById("sidebar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const notificationBtn = document.getElementById("notification-btn");
+    const profileBtn = document.getElementById("profile-btn");
+    const notificationMenu = document.getElementById("notification-menu");
+    const profileMenu = document.getElementById("profile-menu");
 
-    // Si se quisiera activar el detalle en el futuro:
-    const tarjetas = document.querySelectorAll(".card");
-    tarjetas.forEach(tarjeta => {
-        tarjeta.addEventListener("click", () => {
-            mostrarDetalle(partidoEjemplo);
+    // Sidebar toggle
+    menuToggle.addEventListener("click", () => {
+        sidebar.style.left = sidebar.style.left === "0px" ? "-300px" : "0px";
+    });
+
+    // Notificaciones
+    notificationBtn.addEventListener("click", () => {
+        notificationMenu.style.display = notificationMenu.style.display === "block" ? "none" : "block";
+        profileMenu.style.display = "none";
+    });
+
+    // Perfil
+    profileBtn.addEventListener("click", () => {
+        profileMenu.style.display = profileMenu.style.display === "block" ? "none" : "block";
+        notificationMenu.style.display = "none";
+    });
+
+    // Buscar partidos
+    buscarForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fecha = document.getElementById("fecha").value;
+        const hora = document.getElementById("hora").value;
+        if (fecha && hora) {
+            alert(`Buscando partidos para el ${fecha} a las ${hora}`);
+        } else {
+            alert("Por favor, selecciona una fecha y hora.");
+        }
+    });
+
+    // Unirse a partidos
+    const botonesUnirse = document.querySelectorAll(".btn-unirse");
+
+    botonesUnirse.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const card = boton.closest(".card");
+            const tipo = card.dataset.tipo;
+            if (tipo === "publico") {
+                alert("Te has unido al partido exitosamente.");
+            } else if (tipo === "privado") {
+                const codigoReal = card.dataset.codigo;
+                const ingresado = prompt("Este partido es privado. Ingresa el código de 4 dígitos:");
+                if (ingresado === codigoReal) {
+                    modal.style.display = "block";
+                } else {
+                    alert("Código incorrecto. No puedes unirte.");
+                }
+            }
         });
     });
 
-    // Mostrar detalle del partido en sección inferior
-    function mostrarDetalle(partido) {
-        detalleInfo.innerHTML = `
-            <h3>${partido.nombre}</h3>
-            <p><strong>Fecha:</strong> ${partido.fecha}</p>
-            <p><strong>Hora:</strong> ${partido.hora}</p>
-            <p><strong>Anfitrión:</strong> ${partido.anfitrion}</p>
-            <p><strong>Nivel:</strong> ${partido.nivel}</p>
-            <p>${partido.descripcion}</p>
-        `;
-        detallePartido.style.display = "block";
-        window.scrollTo(0, detallePartido.offsetTop);
-    }
+    // Modal
+    cerrar.addEventListener("click", () => {
+        modal.style.display = "none";
+        comentario.value = "";
+    });
 
-    // Enviar solicitud al anfitrión (simulado)
-    solicitudForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const nombreSolicitante = document.getElementById("nombreSolicitante").value;
-        const mensajeSolicitud = document.getElementById("mensajeSolicitud").value;
-        alert(`Solicitud enviada por: ${nombreSolicitante}\nMensaje: ${mensajeSolicitud}`);
-        solicitudForm.reset();
+    enviarSolicitud.addEventListener("click", () => {
+        const mensaje = comentario.value.trim();
+        if (mensaje) {
+            alert("Solicitud enviada con el siguiente mensaje:\n" + mensaje);
+            comentario.value = "";
+            modal.style.display = "none";
+        } else {
+            alert("Por favor, escribe un comentario antes de enviar.");
+        }
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            comentario.value = "";
+        }
     });
 });
