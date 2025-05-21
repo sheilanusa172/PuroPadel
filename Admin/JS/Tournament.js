@@ -50,7 +50,8 @@ tournamentForm.addEventListener('submit', (e) => {
     visibility: visibilityInput.value,
     description: descriptionInput.value,
     photo: photoInput.files[0] ? URL.createObjectURL(photoInput.files[0]) : null,
-    accessCode: accessCode
+    accessCode: accessCode,
+    status: 'notStarted' // 👈 nuevo campo de estado
   };
 
   if (editingTournamentId) {
@@ -66,6 +67,17 @@ tournamentForm.addEventListener('submit', (e) => {
 // Generate 6 digit access code
 function generateAccessCode() {
   return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+// Start Tournament
+function startTournament(event, id) {
+  event.stopPropagation();
+  const tournament = tournaments.find(t => t.id === id);
+  if (tournament && tournament.status === 'notStarted') {
+    tournament.status = 'inProgress';
+    alert(`Tournament "${tournament.name}" has started!`);
+    renderTournaments();
+  }
 }
 
 // Render Tournaments
@@ -89,14 +101,17 @@ function renderTournaments() {
       <p><strong>Category:</strong> ${tournament.category}</p>
       <p><strong>Participants:</strong> ${tournament.participants}</p>
       <p><strong>Visibility:</strong> ${tournament.visibility.charAt(0).toUpperCase() + tournament.visibility.slice(1)}</p>
+      <p><strong>Status:</strong> ${tournament.status}</p>
       <div class="detalles-torneo hidden mt-4 bg-gray-50 p-4 rounded-xl">
         <p><strong>Time:</strong> ${tournament.time}</p>
         <p><strong>Format:</strong> ${tournament.format}</p>
         <p><strong>Description:</strong> ${tournament.description}</p>
         ${tournament.visibility === 'private' && tournament.accessCode ? `<p><strong>Access Code:</strong> ${tournament.accessCode}</p>` : ''}
         ${tournament.photo ? `<img src="${tournament.photo}" alt="Tournament Photo" class="mt-4 rounded-xl">` : ''}
-        <div class="flex gap-4 mt-4">
+        <div class="flex flex-wrap gap-2 mt-4">
+          ${tournament.status === 'notStarted' ? `<button onclick="startTournament(event, ${tournament.id})" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Start</button>` : ''}
           <button onclick="window.location.href='../Html/TournamentResoults.html'" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Results</button>
+          <button onclick="window.location.href='../Html/TournamentStandings.html'" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Standings</button>
           <button onclick="editTournament(event, ${tournament.id})" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Edit</button>
           <button onclick="deleteTournament(event, ${tournament.id})" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
         </div>
@@ -112,12 +127,6 @@ function renderTournaments() {
 function expandTournament(card) {
   const details = card.querySelector('.detalles-torneo');
   details.classList.toggle('hidden');
-}
-
-// View Results Placeholder
-function viewResults(event) {
-  event.stopPropagation();
-  alert('Redirecting to results page...');
 }
 
 // Edit Tournament
