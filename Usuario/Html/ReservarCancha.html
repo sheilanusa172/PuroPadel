@@ -1,36 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar Cancha</title>
-    <link rel="stylesheet" href="../CSS/ReservarCancha.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservar Cancha</title>
+  <link rel="stylesheet" href="/Usuario/CSS/ReservarCancha.css" />
 </head>
 <body>
+  <div class="header">
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+    <div class="right-icons">
+      <button id="notification-btn" class="header-btn">
+        <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
+      </button>
+      <div class="dropdown" id="notification-menu">
+        <p>No tienes nuevas notificaciones.</p>
+      </div>
+      <button id="profile-btn" class="header-btn">
+        <img src="/imagenes/perfil.png" alt="Perfil" class="profile-pic-small" />
+      </button>
+      <div class="dropdown" id="profile-menu">
+        <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
+        <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
+      <li><a href="/Usuario/Html/ReservarCancha.html" class="active">Reservar Cancha</a></li>
+      <li><a href="/Usuario/Html/BuscarPartido.html">Buscar Partido</a></li>
+      <li><a href="/Usuario/Html/QuienesSomos.html">Quiénes Somos</a></li>
+      <li><a href="/Usuario/Html/Profesores.html">Profesores</a></li>
+      <li><a href="/Usuario/Html/Clases.html">Clases</a></li>
+      <li><a href="/Usuario/Html/Torneos.html">Torneos</a></li>
+      <li><a href="/Usuario/Html/Leaderboard.html">Leaderboard</a></li>
+      <li><a href="/Usuario/Html/Catalogo.html">Catálogo de Productos</a></li>
+      <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
+      <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+
+  <main class="main-content" id="main-content">
     <h1 class="titulo">Reserva tu Cancha</h1>
 
     <div class="semana-navegacion">
-        <button id="semana-previa">← Semana Anterior</button>
-        <div id="dias-semana" class="dias-semana"></div>
-        <button id="semana-siguiente">Semana Siguiente →</button>
+      <button id="semana-previa" class="semana-btn">← Semana Anterior</button>
+      <div id="dias-semana" class="dias-semana"></div>
+      <button id="semana-siguiente" class="semana-btn">Semana Siguiente →</button>
+      <input type="date" id="selector-fecha-lejana" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; margin-left: 10px;">
     </div>
 
     <div class="selector-horario">
-        <label for="horario">Selecciona la hora:</label>
-        <select id="horario"></select>
+      <label for="horario">Selecciona la hora:</label>
+      <select id="horario"></select>
 
-        <label for="duracion">Duración:</label>
-        <select id="duracion">
-            <option value="60">1 hora</option>
-            <option value="90">1 hora y 30 minutos</option>
-            <option value="120">2 horas</option>
-        </select>
+      <label for="duracion">Duración:</label>
+      <select id="duracion">
+        <option value="60">1 hora</option>
+        <option value="90">1 hora y 30 minutos</option>
+        <option value="120">2 horas</option>
+      </select>
     </div>
 
     <div id="mensaje" class="mensaje"></div>
-
     <div class="cancha-grid" id="contenedor-canchas"></div>
+  </main>
 
-    <script src="../JS/ReservarCancha.js"></script>
+  <script src="/Usuario/JS/ReservarCancha.js"></script>
 </body>
 </html>

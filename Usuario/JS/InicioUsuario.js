@@ -3,13 +3,10 @@ const content = document.getElementById('main-content');
 
 // Sidebar y menú
 document.getElementById('menu-toggle').addEventListener('click', () => {
-  if (sidebar.style.left === '-250px') {
-    sidebar.style.left = '0';
-    if (content) content.style.marginLeft = '250px';
-  } else {
-    sidebar.style.left = '-250px';
-    if (content) content.style.marginLeft = '0';
-  }
+  const body = document.body;
+  const isOpen = body.classList.contains("sidebar-open");
+  body.classList.toggle("sidebar-open");
+  sidebar.style.left = isOpen ? '-250px' : '0';
 });
 
 document.getElementById('notification-btn').addEventListener('click', () => {
@@ -56,12 +53,10 @@ function renderNoticias(noticias) {
       ${data.tag ? `<p class="news-tag"><strong>Etiquetado:</strong> ${data.tag}</p>` : ''}
     `;
 
-    if (data.image) {
-      const img = document.createElement('img');
-      img.src = data.image;
-      img.classList.add('news-image');
-      newsItem.appendChild(img);
-    }
+    const img = document.createElement('img');
+    img.src = '/imagenes/SAI.png';
+    img.classList.add('news-image');
+    newsItem.appendChild(img);
 
     const likeContainer = document.createElement('div');
     likeContainer.classList.add('like-container');
@@ -92,6 +87,7 @@ function renderNoticias(noticias) {
 
     newsList.appendChild(newsItem);
   });
+
   checkNoNews();
 }
 
@@ -103,7 +99,35 @@ filterInput.addEventListener('input', () => {
 });
 
 window.addEventListener('load', () => {
-  const noticias = JSON.parse(localStorage.getItem('noticias')) || [];
+  let noticias = JSON.parse(localStorage.getItem('noticias'));
+
+  if (!noticias || noticias.length === 0) {
+    noticias = [
+      {
+        title: "¡Gran Torneo de Primavera!",
+        date: "2025-04-05",
+        description: "Este fin de semana celebramos nuestro Torneo Primavera con más de 30 jugadores inscritos.",
+        tag: "Torneo",
+        likes: 12
+      },
+      {
+        title: "Nueva Cancha Techada",
+        date: "2025-03-28",
+        description: "Ya está habilitada nuestra nueva cancha techada con iluminación LED.",
+        tag: "Instalaciones",
+        likes: 8
+      },
+      {
+        title: "Clases Personalizadas",
+        date: "2025-03-20",
+        description: "Nuestros entrenadores certificados ya están disponibles para sesiones uno a uno.",
+        tag: "Clases",
+        likes: 5
+      }
+    ];
+    localStorage.setItem('noticias', JSON.stringify(noticias));
+  }
+
   renderNoticias(noticias);
 });
 

@@ -1,37 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 20px;
+  background-color: #f4f6fc;
 }
 
-header {
-  background-color: #26468B;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Navegación de la semana */
-.semana-navegacion {
+/* HEADER */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #26468B;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 1500;
+}
+
+.menu-toggle {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #E1ED29;
+  cursor: pointer;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1000;
+  display: none;
+  top: 60px;
+  right: 10px;
+  border-radius: 5px;
+  min-width: 160px;
+}
+
+.dropdown a, .dropdown p {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100vh;
+  background-color: #26468B;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding-top: 80px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  color: #E1ED29;
+  text-decoration: none;
+  display: block;
+  padding: 12px 20px;
+  border-radius: 5px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #1A3365;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  padding: 80px 20px 20px 20px;
+}
+
+/* Título centrado */
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #26468B;
+}
+
+/* Navegación de semana */
+.semana-navegacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.semana-navegacion button {
+.semana-btn {
+  padding: 10px 16px;
   background-color: #26468B;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  margin: 5px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Días de la semana */
+.semana-btn:hover {
+  background-color: #1A3365;
+  transform: scale(1.05);
+}
+
 .dias-semana {
   display: flex;
   gap: 10px;
@@ -40,17 +165,16 @@ header {
 }
 
 .dias-semana button {
-  padding: 10px 15px;
+  padding: 10px;
   background-color: #26468B;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .dias-semana button.active {
-  background-color: #1a3366;
+  background-color: #1A3365;
 }
 
 /* Selector horario */
@@ -58,13 +182,12 @@ header {
   display: flex;
   justify-content: center;
   gap: 15px;
-  align-items: center;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .selector-horario select {
-  padding: 8px;
+  padding: 6px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
@@ -72,17 +195,15 @@ header {
 /* Grid de canchas */
 .cancha-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 .cancha {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .cancha-btn {
@@ -101,7 +222,7 @@ header {
   transition: transform 0.3s ease;
 }
 
-.cancha .overlay {
+.overlay {
   position: absolute;
   bottom: 0;
   background: rgba(0,0,0,0.6);
@@ -111,10 +232,9 @@ header {
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
-  text-transform: uppercase;
 }
 
-/* Mensaje de no disponibilidad */
+/* Mensaje */
 .mensaje {
   text-align: center;
   color: red;
@@ -122,7 +242,7 @@ header {
   margin-bottom: 20px;
 }
 
-/* Modal y Overlays */
+/* Modal */
 .reserva-overlay {
   position: fixed;
   top: 0;
@@ -141,9 +261,21 @@ header {
   padding: 30px;
   border-radius: 10px;
   text-align: center;
-  max-width: 350px;
+  max-width: 400px;
+  width: 90%;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
   position: relative;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
 }
 
 .reservar-btn {
@@ -162,18 +294,6 @@ header {
   background-color: #1b3566;
 }
 
-.cerrar-modal {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #333;
-}
-
-/* Botones de modo público/privado */
 .modo-btn {
   background-color: #e1edf7;
   border: 1px solid #26468B;
