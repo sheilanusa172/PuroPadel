@@ -7,20 +7,37 @@
   <link rel="stylesheet" href="../CSS/catalog.css" />
 </head>
 <body>
-  <header class="navbar">
-    <img src="/imagenes/SAI.png" alt="Logo" class="logo">
-    <nav>
+  <div class="top-bar">
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+    <div class="right-icons">
+      <button id="notification-btn" class="icon-btn">
+        <img src="/imagenes/campana.png" alt="Notificaciones" class="icono">
+      </button>
+      <button id="profile-btn" class="icon-btn" onclick="window.location.href='../Html/Perfil.html'">
+        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="icono">
+      </button>
       <a href="../Html/Cart.html" class="cart-link">
         🛒 <span id="cartCount">0</span>
       </a>
-    </nav>
-  </header>
+    </div>
+  </div>
 
-  <main class="container">
+  <div class="sidebar" id="sidebar">
+    <a href="../Html/Inicio.html">Inicio</a>
+    <a href="../Html/ReservarCancha.html">Reservar Cancha</a>
+    <a href="../Html/Torneos.html">Torneos</a>
+    <a href="../Html/Clases.html">Clases</a>
+    <a href="../Html/Profesores.html">Profesores</a>
+    <a href="../Html/Catalog.html" class="activo">Catálogo</a>
+    <a href="../Html/Cart.html">Carrito</a>
+    <a href="../Html/Perfil.html">Perfil</a>
+  </div>
+
+  <main class="container" id="main">
+    <h1 class="catalog-title">Catálogo de Productos</h1>
     <div id="productCatalog" class="catalog-grid"></div>
   </main>
 
-  <script src="../JS/storage.js"></script>
   <script src="../JS/catalog.js"></script>
 </body>
 </html>
