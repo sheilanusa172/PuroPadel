@@ -1,21 +1,21 @@
 const products = [
     {
       id: 1,
-      name: "Veloziraptor",
+      name: "Muñequeras",
       price: 111111,
-      image: "https://cdn.pixabay.com/photo/2020/11/04/08/46/padel-5712700_960_720.jpg"
+      image: "https://www.zonadepadel.es/9699-home_default/munequeras-bullpadel-bpmu214-oceano-profundo-negro.jpg"
     },
     {
       id: 2,
-      name: "Biciclón",
+      name: "Gorras",
       price: 222222,
-      image: "https://cdn.pixabay.com/photo/2016/12/13/23/14/padel-1905408_960_720.jpg"
+      image: "https://www.tuescuelapadel.com/wp-content/uploads/2022/03/gorras_padel.jpg"
     },
     {
       id: 3,
-      name: "CicloTravesura",
+      name: "Protectores",
       price: 333333,
-      image: "https://cdn.pixabay.com/photo/2020/10/28/15/43/padel-5693264_960_720.jpg"
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jq5SZEq6NrCDa1G1DyAarf-mYhKG3FpCZA&s"
     }
   ];
   

@@ -9,11 +9,12 @@ function renderCart() {
   let subtotal = 0;
 
   cart.forEach((item, index) => {
-    const row = document.createElement("tr");
     const itemSubtotal = item.price * item.quantity;
     subtotal += itemSubtotal;
 
+    const row = document.createElement("tr");
     row.innerHTML = `
+      <td><img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: contain;" /></td>
       <td>${item.name}</td>
       <td><input type="number" min="1" value="${item.quantity}" onchange="changeQty(${index}, this.value)" /></td>
       <td>₡${item.price.toLocaleString()}</td>
