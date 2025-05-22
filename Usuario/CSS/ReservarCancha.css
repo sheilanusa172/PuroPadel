@@ -89,6 +89,10 @@ body {
   z-index: 1400;
 }
 
+.sidebar.open {
+  left: 0;
+}
+
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -117,10 +121,6 @@ body {
   margin-left: 0;
   transition: margin-left 0.3s;
   padding: 90px 20px 30px 20px;
-}
-
-.sidebar.open + .main-content {
-  margin-left: 300px;
 }
 
 .titulo {

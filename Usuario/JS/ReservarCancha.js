@@ -274,13 +274,16 @@ function mostrarOpcionesReserva(overlayAnterior) {
         <button class="modo-btn" data-modo="publica">Pública</button>
         <button class="modo-btn" data-modo="privada">Privada</button>
       </div>
-      <label for="categoria">Categoría:</label>
-      <select id="categoria">
-        <option value="primera">Primera</option>
-        <option value="segunda">Segunda</option>
-        <option value="tercera">Tercera</option>
-        <option value="cuarta">Cuarta</option>
-      </select>
+     <label for="categoria">CATEGORÍA:</label>
+<select id="categoria">
+  <option value="primera">PRIMERA</option>
+  <option value="segunda">SEGUNDA</option>
+  <option value="tercera">TERCERA</option>
+  <option value="cuarta">CUARTA</option>
+  <option value="quinta">QUINTA</option>
+  <option value="libre">INICIACIÓN</option>
+  <option value="libre">LIBRE</option>
+</select>
       <div id="info-extra" style="margin-top: 15px; margin-bottom: 15px;"></div>
       <button class="reservar-btn">Reservar Cancha</button>
     </div>
@@ -363,15 +366,22 @@ generarHorarios();
 const sidebar = document.getElementById('sidebar');
 const content = document.getElementById('main-content');
 
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  if (sidebar.style.left === '0px') {
-    sidebar.style.left = '-300px';
-    content.style.marginLeft = '0';
-  } else {
-    sidebar.style.left = '0';
-    content.style.marginLeft = '300px';
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.getElementById('sidebar');
+  const content = document.getElementById('main-content');
+  const toggleBtn = document.getElementById('menu-toggle');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+      content.style.marginLeft = '300px';
+    } else {
+      content.style.marginLeft = '0';
+    }
+  });
 });
+
+
 
 document.getElementById('notification-btn').addEventListener('click', () => {
   const notiMenu = document.getElementById('notification-menu');
