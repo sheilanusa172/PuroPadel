@@ -1,18 +1,20 @@
+/* Base */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f6fa;
+  background: #ffffff; /* fondo blanco */
+  color: #000000; /* texto negro */
   overflow-x: hidden;
 }
 
-/* Barra superior azul */
+/* Barra superior */
 .top-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
-  background: #26468B;
+  background: #2c2c2c; /* gris oscuro */
   color: white;
   display: flex;
   align-items: center;
@@ -30,14 +32,14 @@ body {
   cursor: pointer;
 }
 
-/* Sidebar oculto por defecto */
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
   left: -300px;
   width: 300px;
   height: 100vh;
-  background-color: #26468B;
+  background-color: #2c2c2c;
   color: white;
   padding: 60px 20px 20px;
   display: flex;
@@ -58,7 +60,7 @@ body {
 
 .sidebar a:hover,
 .sidebar a.activo {
-  background-color: #1e356a;
+  background-color: #444; /* gris hover */
 }
 
 .right-icons {
@@ -103,7 +105,7 @@ body {
 .catalog-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #111827;
+  color: #000000;
   text-align: center;
 }
 
@@ -115,13 +117,14 @@ body {
 }
 
 .product-card {
-  background: white;
+  background: #f5f5f5;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid #ddd;
+  color: #000000;
 }
 
 .product-card:hover {
@@ -139,17 +142,18 @@ body {
 .product-card h3 {
   margin: 0.5rem 0;
   font-size: 1.3rem;
-  color: #1f2937;
+  color: #000000;
 }
 
 .product-card p {
   font-size: 1rem;
-  color: #374151;
+  color: #222;
   margin-bottom: 1rem;
 }
 
+/* Botón Agregar al carrito */
 .product-card button {
-  background: #10b981;
+  background: #000000; /* negro */
   color: white;
   border: none;
   padding: 0.6rem 1.4rem;
@@ -160,5 +164,5 @@ body {
 }
 
 .product-card button:hover {
-  background: #059669;
+  background: #444; /* gris hover */
 }

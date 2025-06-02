@@ -6,16 +6,18 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f6fc;
+  background-color: #ffffff;
+  color: #000000;
   transition: margin-left 0.3s ease;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #26468B;
+  background-color: #2c2c2c;
   color: white;
   width: 100%;
   position: fixed;
@@ -30,7 +32,7 @@ body {
   font-size: 30px;
   background: none;
   border: none;
-  color: #E1ED29;
+  color: #ffffff;
   padding: 10px 15px;
 }
 
@@ -56,9 +58,10 @@ body {
   border-radius: 50%;
 }
 
+/* Dropdown */
 .dropdown {
   position: absolute;
-  background-color: white;
+  background-color: #f5f5f5;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1000;
@@ -70,23 +73,24 @@ body {
 }
 
 .dropdown p, .dropdown a {
-  color: black;
+  color: #000000;
   padding: 10px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown a:hover {
-  background-color: #f1f1f1;
+  background-color: #e0e0e0;
 }
 
+/* Sidebar */
 .sidebar {
   width: 250px;
   position: fixed;
   top: 0;
   left: -250px;
   height: 100vh;
-  background-color: #26468B;
+  background-color: #2c2c2c;
   transition: left 0.3s ease;
   z-index: 1000;
   padding-top: 80px;
@@ -103,17 +107,19 @@ body {
 }
 
 .sidebar a {
-  color: #E1ED29;
+  color: #ffffff;
   text-decoration: none;
   display: block;
   padding: 10px 20px;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .sidebar a:hover {
-  background-color: #1A3365;
+  background-color: #444;
 }
 
+/* Contenido */
 .content {
   margin-left: 0;
   padding: 80px 20px 20px 20px;
@@ -127,9 +133,10 @@ body.sidebar-open .content {
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #26468B;
+  color: #000000;
 }
 
+/* Profesores */
 .profesores-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -138,12 +145,13 @@ h1 {
 }
 
 .profesor-card {
-  background-color: white;
+  background-color: #f5f5f5;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
+  color: #000000;
 }
 
 .profesor-card:hover {
@@ -159,19 +167,20 @@ h1 {
 }
 
 .profesor-card h2 {
-  color: #26468B;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .profesor-card p {
   font-size: 14px;
-  color: #333;
+  color: #333333;
   margin-bottom: 15px;
 }
 
+/* Botón */
 .btn {
   display: inline-block;
-  background-color: #26468B;
+  background-color: #000000;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -180,5 +189,5 @@ h1 {
 }
 
 .btn:hover {
-  background-color: #1A3365;
+  background-color: #444;
 }

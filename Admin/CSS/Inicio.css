@@ -6,17 +6,18 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f6fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
 
-/* Barra Superior */
+/* ===== HEADER ===== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #26468B;
+  background-color: #2c2c2c;
   color: white;
   width: 100%;
   position: fixed;
@@ -27,39 +28,33 @@ body {
 }
 
 .menu-toggle {
-  cursor: pointer;
   font-size: 30px;
   background: none;
   border: none;
-  color: #E1ED29;
-  padding: 10px 15px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .right-icons {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-right: 20px;
-}
-
-.header-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  align-items: center;
 }
 
 .profile-pic-small {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
+/* Dropdown */
 .dropdown {
   position: absolute;
-  background-color: white;
+  background-color: #f5f5f5;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1000;
@@ -70,174 +65,185 @@ body {
   min-width: 160px;
 }
 
-.dropdown p, .dropdown a {
-  color: black;
+.dropdown p,
+.dropdown a {
+  color: #000000;
   padding: 10px;
-  margin: 0;
   text-decoration: none;
   display: block;
-  white-space: nowrap;
 }
 
 .dropdown a:hover {
-  background-color: #f1f1f1;
+  background-color: #e0e0e0;
 }
 
-/* Sidebar */
+/* ===== SIDEBAR ===== */
 .sidebar {
   width: 250px;
   position: fixed;
   top: 0;
   left: -250px;
   height: 100vh;
-  background-color: #26468B;
-  transition: left 0.3s;
+  background-color: #2c2c2c;
+  transition: left 0.3s ease;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   padding-top: 80px;
 }
 
 .sidebar ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
   width: 100%;
 }
 
-.sidebar li {
-  padding: 10px 0;
-}
-
 .sidebar a {
-  color: #E1ED29;
+  color: #ffffff;
   text-decoration: none;
   display: block;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .sidebar a:hover {
-  background-color: #1A3365;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  background-color: #444;
 }
 
-/* Contenido principal */
+/* ===== CONTENIDO PRINCIPAL ===== */
 .main-content {
   transition: margin-left 0.3s;
   padding: 80px 20px 20px 20px;
   margin-left: 0;
 }
 
-/* Título Principal */
-.container h1 {
-  font-size: 36px;
-  color: #26468B;
-  margin-bottom: 20px;
+.container {
+  max-width: 900px;
+  margin: auto;
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Input Filtro */
+.container h1 {
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* ===== INPUT FILTRO ===== */
 #filter-input {
-  width: 100%;
-  padding: 10px;
-  margin: 15px 0;
-  font-size: 14px;
+  width: 60%;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Botón Crear Noticia */
+/* ===== BOTÓN CREAR NOTICIA ===== */
 #show-form-button {
-  background-color: #26468B;
-  color: #fff;
+  background-color: #2c2c2c;
+  color: #ffffff;
   border: none;
   padding: 10px 15px;
   margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #show-form-button:hover {
-  background-color: #1A3365;
+  background-color: #444;
 }
 
-/* Formulario */
+/* ===== FORMULARIO ===== */
 .form-container {
-  background-color: white;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: black;
 }
 
 .form-container input,
 .form-container textarea,
-.form-container button {
+.form-container select {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: #000;
+  background-color: #fff;
 }
 
-/* Card de noticia */
+.form-container button {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #444;
+}
+
+/* ===== NOTICIAS ===== */
 .news-item {
-  background-color: white;
-  border-radius: 10px;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: relative;
-  animation: fadeIn 0.5s ease forwards;
+  transition: transform 0.2s ease;
+  text-align: left;
+  color: #000000;
 }
 
-/* Animación */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.news-item:hover {
+  transform: translateY(-5px);
 }
 
-/* Texto dentro de noticia */
-.news-item h3 {
-  font-size: 22px;
+.news-title {
+  color: #000000;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.news-item p {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* Imagen dentro de noticia */
-.news-item img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: 10px;
+.news-description {
   margin-top: 10px;
-  background-color: #f0f0f0;
+  font-size: 15px;
+  color: #222222;
 }
 
-/* Fecha Publicada */
+.news-tag {
+  font-style: italic;
+  color: #666;
+  margin-top: 5px;
+}
+
+.news-image {
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 .date {
-  font-size: 12px;
-  color: #888;
-  opacity: 0.6;
+  font-size: 13px;
+  color: gray;
 }
 
-/* Botón eliminar */
+/* ===== BOTONES EDITAR Y ELIMINAR ===== */
 .delete-button {
   position: absolute;
   top: 10px;
@@ -253,45 +259,35 @@ body {
   color: #cc0000;
 }
 
-/* Botón editar */
 .edit-button {
   position: absolute;
   top: 10px;
-  right: 40px;
+  right: 45px;
   background-color: transparent;
   border: none;
-  color: #26468B;
+  color: #2c2c2c;
   font-size: 18px;
   cursor: pointer;
 }
 
 .edit-button:hover {
-  color: #1A3365;
+  color: #444;
 }
 
-/* Mensaje si no hay noticias */
-.no-news-message {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #888;
-}
-
-/* Likes */
+/* ===== LIKE ===== */
 .like-container {
+  margin-top: 15px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
+  gap: 8px;
 }
 
 .like-button {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
   color: #aaa;
-  transition: color 0.3s ease;
 }
 
 .like-button.liked {
@@ -300,5 +296,12 @@ body {
 
 .like-count {
   font-size: 14px;
-  color: #555;
+  color: #222;
+}
+
+.no-news-message {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 16px;
 }

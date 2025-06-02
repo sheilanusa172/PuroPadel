@@ -1,278 +1,249 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Estilo general */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* fondo blanco */
+  color: #000000; /* texto negro */
 }
 
-html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-}
-
-a, span, p, h1, h2, h3, label {
-    text-decoration: none;
-}
-
-/* HEADER */
+/* Header superior */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #26468B;
-    color: white;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 60px;
-    z-index: 1500;
+  background-color: #2c2c2c;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1000;
 }
 
 .menu-toggle {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #E1ED29;
-    cursor: pointer;
+  position: absolute;
+  left: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .right-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .header-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .profile-pic-small {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
+/* Dropdown */
 .dropdown {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: white;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 180px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 10px;
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 999;
 }
 
 .dropdown a {
-    display: block;
-    padding: 10px;
-    color: #26468B;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
 }
 
-.dropdown a:hover {
-    background-color: #f0f0f0;
-}
-
-/* SIDEBAR */
+/* Sidebar */
 .sidebar {
-    width: 300px;
-    position: fixed;
-    top: 60px;
-    left: -300px;
-    height: 100vh;
-    background-color: #26468B;
-    color: #E1ED29;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-    transition: left 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar.open {
-    left: 0;
+  background-color: #2c2c2c;
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  padding-top: 20px;
+  overflow-y: auto;
+  z-index: 900;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 20px;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li a {
-    color: #E1ED29;
-    font-size: 17px;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: all 0.55s ease;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
+  display: block;
+  padding: 15px 25px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
 }
 
 .sidebar ul li a:hover {
-    border-bottom: 2px solid #E1ED29;
-    background-color: #1A3365;
+  background-color: #444;
 }
 
-/* MAIN */
+/* Main content */
 main {
-    flex: 1;
-    padding: 100px 20px 20px 20px;
-    max-width: 900px;
-    margin: auto;
-    width: 100%;
+  margin-left: 320px;
+  padding: 100px 20px 40px;
 }
 
-section {
-    background: white;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
+/* Buscar Partido */
+#buscar-partido {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  color: #000;
 }
 
-section:hover {
-    transform: translateY(-2px);
+#buscar-partido h2,
+#partidos-disponibles h2 {
+  margin-top: 0;
+  color: #000;
 }
 
-h2 {
-    color: #26468B;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+form label {
+  display: block;
+  margin-top: 10px;
+  color: #000;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-label {
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-input, select, textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #26468B;
-    box-shadow: 0 0 0 2px rgba(38, 70, 139, 0.2);
+input[type="date"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
 }
 
 button {
-    background-color: #26468B;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 0.75rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #1b3364;
-    transform: scale(1.03);
+  background-color: #444;
 }
 
-/* CARDS DE PARTIDOS */
+/* Partidos disponibles */
 .card {
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: #000;
 }
 
-.card:hover {
-    background-color: #eaf0fa;
-    transform: translateY(-3px);
+.card h3 {
+  color: #000;
+  margin: 0 0 10px;
 }
 
-/* Nivel del jugador */
+.card p {
+  margin: 5px 0;
+}
+
+/* Nivel */
 .nivel {
-    font-weight: bold;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-    color: white;
-    font-size: 0.85rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 5px;
+  color: white;
+}
+
+.nivel.primera {
+  background-color: #1abc9c;
 }
 
 .nivel.segunda {
-    background-color: #ffc107;
-    color: #000;
+  background-color: #3498db;
 }
 
-/* FOOTER SIN COLOR AZUL */
-footer {
-    text-align: center;
-    padding: 1.5rem 0;
-    background-color: transparent;
-    color: #333;
-    font-size: 0.95rem;
-    margin-top: auto;
+.nivel.tercera {
+  background-color: #9b59b6;
 }
 
-/* MODAL */
+.nivel.cuarta {
+  background-color: #f39c12;
+}
+
+/* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+  display: none;
+  position: fixed;
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
 }
 
 .modal-contenido {
-    background-color: white;
-    margin: 10% auto;
-    padding: 2rem;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
+  background-color: #f5f5f5;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  color: #000;
 }
 
 .modal-contenido textarea {
-    width: 100%;
-    height: 100px;
-    margin: 1rem 0;
-    padding: 0.75rem;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    resize: none;
-    font-size: 1rem;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+  margin-top: 10px;
+  background-color: #fff;
+  color: #000;
 }
 
 .cerrar {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2c2c2c;
+  color: white;
+  margin-top: 40px;
 }
