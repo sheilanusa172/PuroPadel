@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rendimiento de Profesores</title>
+  <link rel="stylesheet" href="../CSS/CoachPerformance.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <div class="max-w-7xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">Rendimiento de Profesores</h1>
+
+    <!-- Filtros de fecha -->
+    <div class="flex flex-wrap gap-4 items-end mb-6">
+      <div>
+        <label class="block text-gray-700">Desde</label>
+        <input id="startDate" type="date" class="p-2 rounded-xl border w-48" />
+      </div>
+      <div>
+        <label class="block text-gray-700">Hasta</label>
+        <input id="endDate" type="date" class="p-2 rounded-xl border w-48" />
+      </div>
+      <button id="btnFilter" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Filtrar</button>
+    </div>
+
+    <!-- Tabla de rendimiento -->
+    <div class="overflow-x-auto bg-white rounded-xl shadow-md">
+      <table class="min-w-full table-auto text-sm text-center">
+        <thead class="bg-gray-200 text-gray-700 font-semibold">
+          <tr>
+            <th class="py-3 px-4">Profesor</th>
+            <th class="py-3 px-4">Clases Individuales</th>
+            <th class="py-3 px-4">Clases Grupales</th>
+            <th class="py-3 px-4">$ Individuales</th>
+            <th class="py-3 px-4">$ Grupales</th>
+            <th class="py-3 px-4">$ Total</th>
+          </tr>
+        </thead>
+        <tbody id="teachersPerformance" class="divide-y divide-gray-100">
+          <!-- Filas dinámicas -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../JS/CoachPerformance.js"></script>
+</body>
+</html>
