@@ -36,15 +36,15 @@ btnAddClass.addEventListener('click', () => {
   modalTitle.textContent = 'Nueva Clase';
   classForm.reset();
   populateTrainers();
-  classModal.classList.remove('hidden');
+  classModal.style.display = 'block';
 });
 
 btnCancel.addEventListener('click', () => {
-  classModal.classList.add('hidden');
+  classModal.style.display = 'none';
 });
 
 btnCloseDetails.addEventListener('click', () => {
-  detailsModal.classList.add('hidden');
+  detailsModal.style.display = 'none';
 });
 
 classForm.addEventListener('submit', (e) => {
@@ -70,7 +70,7 @@ classForm.addEventListener('submit', (e) => {
     classes.push(newClass);
   }
 
-  classModal.classList.add('hidden');
+  classModal.style.display = 'none';
   renderClasses();
 });
 
@@ -79,20 +79,24 @@ function renderClasses() {
 
   classes.forEach(cls => {
     const card = document.createElement('div');
-    card.className = 'bg-white rounded-2xl shadow p-6';
+    card.style.border = '1px solid #ccc';
+    card.style.padding = '16px';
+    card.style.marginBottom = '12px';
+    card.style.borderRadius = '8px';
+    card.style.background = '#fff';
 
     card.innerHTML = `
-      <h3 class="text-xl font-bold mb-2">${cls.name}</h3>
-      <p class="mb-2"><strong>Fecha:</strong> ${cls.date}</p>
-      <p class="mb-2"><strong>Hora:</strong> ${cls.time}</p>
-      <p class="mb-2"><strong>Nivel:</strong> ${cls.level}</p>
-      <p class="mb-2"><strong>Entrenador:</strong> ${cls.trainer}</p>
-      <p class="mb-2"><strong>Participantes:</strong> ${cls.participants.length} / ${cls.maxUsers}</p>
-      <p class="mb-2"><strong>Estado:</strong> ${formatStatus(cls.status)}</p>
-      <div class="flex gap-2 mt-4">
-        <button onclick="viewDetails(${cls.id})" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Ver Detalles</button>
-        <button onclick="editClass(${cls.id})" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Editar</button>
-        <button onclick="cancelClass(${cls.id})" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Cancelar</button>
+      <h3><b>${cls.name}</b></h3>
+      <p><strong>Fecha:</strong> ${cls.date}</p>
+      <p><strong>Hora:</strong> ${cls.time}</p>
+      <p><strong>Nivel:</strong> ${cls.level}</p>
+      <p><strong>Entrenador:</strong> ${cls.trainer}</p>
+      <p><strong>Participantes:</strong> ${cls.participants.length} / ${cls.maxUsers}</p>
+      <p><strong>Estado:</strong> ${formatStatus(cls.status)}</p>
+      <div style="margin-top: 10px;">
+        <button onclick="viewDetails(${cls.id})">Ver Detalles</button>
+        <button onclick="editClass(${cls.id})">Editar</button>
+        <button onclick="cancelClass(${cls.id})">Cancelar</button>
       </div>
     `;
 
@@ -104,25 +108,25 @@ function viewDetails(id) {
   const cls = classes.find(c => c.id === id);
   if (cls) {
     detailsContent.innerHTML = `
-      <h3 class="text-xl font-bold">${cls.name}</h3>
+      <h3><b>${cls.name}</b></h3>
       <p><strong>Fecha:</strong> ${cls.date}</p>
       <p><strong>Hora:</strong> ${cls.time}</p>
       <p><strong>Nivel:</strong> ${cls.level}</p>
       <p><strong>Entrenador:</strong> ${cls.trainer}</p>
       <p><strong>Límite de alumnos:</strong> ${cls.maxUsers}</p>
-      <div class="mt-4">
-        <h4 class="text-lg font-bold">Participantes</h4>
+      <div style="margin-top: 10px;">
+        <h4>Participantes</h4>
         ${cls.participants.length > 0
-          ? `<ul class="list-disc list-inside">${cls.participants.map(p => `<li>${p}</li>`).join('')}</ul>`
-          : '<p class="text-gray-600">No hay participantes.</p>'}
+          ? `<ul>${cls.participants.map(p => `<li>${p}</li>`).join('')}</ul>`
+          : '<p>No hay participantes.</p>'}
       </div>
-      <div class="mt-4">
-        <h4 class="text-lg font-bold">Evaluación</h4>
-        <textarea id="evaluationInput" class="border p-3 rounded-xl w-full" rows="4">${cls.evaluation}</textarea>
-        <button onclick="saveEvaluation(${cls.id})" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Guardar Evaluación</button>
+      <div style="margin-top: 10px;">
+        <h4>Evaluación</h4>
+        <textarea id="evaluationInput" rows="4" style="width: 100%;">${cls.evaluation}</textarea>
+        <button onclick="saveEvaluation(${cls.id})">Guardar Evaluación</button>
       </div>
     `;
-    detailsModal.classList.remove('hidden');
+    detailsModal.style.display = 'block';
   }
 }
 
@@ -130,7 +134,7 @@ function saveEvaluation(id) {
   const evaluationText = document.getElementById('evaluationInput').value;
   classes = classes.map(c => c.id === id ? { ...c, evaluation: evaluationText } : c);
   alert('Evaluación guardada exitosamente.');
-  detailsModal.classList.add('hidden');
+  detailsModal.style.display = 'none';
 }
 
 function editClass(id) {
@@ -146,7 +150,7 @@ function editClass(id) {
     populateTrainers();
     classTrainer.value = cls.trainer;
     classMaxUsers.value = cls.maxUsers;
-    classModal.classList.remove('hidden');
+    classModal.style.display = 'block';
   }
 }
 

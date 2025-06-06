@@ -4,70 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tournament Results</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body>
 
   <!-- Header -->
-  <div class="flex justify-between items-center p-6">
-    <h1 class="text-3xl font-bold">Tournament Results</h1>
-    <a href="tournaments.html" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Back to Tournaments</a>
+  <div>
+    <h1>Tournament Results</h1>
+    <a href="tournaments.html">Back to Tournaments</a>
   </div>
 
   <!-- Tournament Info -->
-  <div class="bg-white rounded-2xl shadow mx-6 p-6 mb-6">
-    <h2 class="text-2xl font-bold mb-4">Spring Tournament 2025</h2>
-    <p class="mb-2"><strong>Category:</strong> Advanced</p>
-    <p class="mb-2"><strong>Dates:</strong> May 10 - May 20, 2025</p>
-    <p class="mb-2"><strong>Format:</strong> Single Elimination</p>
+  <div>
+    <h2>Spring Tournament 2025</h2>
+    <p><strong>Category:</strong> Advanced</p>
+    <p><strong>Dates:</strong> May 10 - May 20, 2025</p>
+    <p><strong>Format:</strong> Single Elimination</p>
   </div>
 
   <!-- Results Table -->
-  <div class="bg-white rounded-2xl shadow mx-6 p-6">
-    <h2 class="text-xl font-bold mb-4">Match Results</h2>
-    <div class="overflow-x-auto">
-      <table class="w-full text-left">
-        <thead>
-          <tr class="border-b">
-            <th class="p-4">Match</th>
-            <th class="p-4">Player 1</th>
-            <th class="p-4">Player 2</th>
-            <th class="p-4">Winner</th>
-            <th class="p-4">Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4">Quarterfinal 1</td>
-            <td class="p-4">Allan Blanco</td>
-            <td class="p-4">Sheila Nuñez</td>
-            <td class="p-4">Allan Blanco</td>
-            <td class="p-4">6-4, 6-3</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4">Quarterfinal 2</td>
-            <td class="p-4">Mario Rojas</td>
-            <td class="p-4">Laura Jiménez</td>
-            <td class="p-4">Laura Jiménez</td>
-            <td class="p-4">7-5, 6-7, 10-8</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4">Semifinal</td>
-            <td class="p-4">Allan Blanco</td>
-            <td class="p-4">Laura Jiménez</td>
-            <td class="p-4">Allan Blanco</td>
-            <td class="p-4">6-3, 6-4</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="p-4 font-bold">Final</td>
-            <td class="p-4">Allan Blanco</td>
-            <td class="p-4">-</td>
-            <td class="p-4 font-bold text-green-600">Champion</td>
-            <td class="p-4">Walkover</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div>
+    <h2>Match Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Match</th>
+          <th>Player 1</th>
+          <th>Player 2</th>
+          <th>Winner</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quarterfinal 1</td>
+          <td>Allan Blanco</td>
+          <td>Sheila Nuñez</td>
+          <td>Allan Blanco</td>
+          <td>6-4, 6-3</td>
+        </tr>
+        <tr>
+          <td>Quarterfinal 2</td>
+          <td>Mario Rojas</td>
+          <td>Laura Jiménez</td>
+          <td>Laura Jiménez</td>
+          <td>7-5, 6-7, 10-8</td>
+        </tr>
+        <tr>
+          <td>Semifinal</td>
+          <td>Allan Blanco</td>
+          <td>Laura Jiménez</td>
+          <td>Allan Blanco</td>
+          <td>6-3, 6-4</td>
+        </tr>
+        <tr>
+          <td>Final</td>
+          <td>Allan Blanco</td>
+          <td>-</td>
+          <td>Champion</td>
+          <td>Walkover</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </body>

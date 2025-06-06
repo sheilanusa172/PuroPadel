@@ -4,57 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Clases</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body>
 
   <!-- Header -->
-  <div class="flex justify-between items-center p-6">
-    <h1 class="text-3xl font-bold">Gestión de Clases</h1>
-    <button id="btnAddClass" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">+ Nueva Clase</button>
+  <div>
+    <h1>Gestión de Clases</h1>
+    <button id="btnAddClass">+ Nueva Clase</button>
   </div>
 
   <!-- Classes Calendar/List -->
-  <div id="classesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+  <div id="classesList">
     <!-- Clases se inyectan dinámicamente aquí -->
   </div>
 
   <!-- Modal for Add/Edit Class -->
-  <div id="classModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
-    <div class="bg-white rounded-xl p-8 w-[500px] max-h-[90vh] overflow-y-auto relative">
-      <h2 id="modalTitle" class="text-2xl font-bold mb-4">Nueva Clase</h2>
-      <form id="classForm" class="flex flex-col gap-4">
-        <input id="className" type="text" placeholder="Nombre de la Clase" class="border p-3 rounded-xl" required />
-        <input id="classDate" type="date" class="border p-3 rounded-xl" required />
-        <input id="classTime" type="time" class="border p-3 rounded-xl" required min="06:00" max="23:30" step="1800" />
-        <textarea id="classDescription" placeholder="Descripción de la Clase" class="border p-3 rounded-xl" rows="3" required></textarea>
-        <select id="classLevel" class="border p-3 rounded-xl" required>
+  <div id="classModal" style="display: none;">
+    <div>
+      <h2 id="modalTitle">Nueva Clase</h2>
+      <form id="classForm">
+        <input id="className" type="text" placeholder="Nombre de la Clase" required />
+        <input id="classDate" type="date" required />
+        <input id="classTime" type="time" required min="06:00" max="23:30" step="1800" />
+        <textarea id="classDescription" placeholder="Descripción de la Clase" rows="3" required></textarea>
+        <select id="classLevel" required>
           <option value="Principiante">Principiante</option>
           <option value="Intermedio">Intermedio</option>
           <option value="Avanzado">Avanzado</option>
         </select>
-        <select id="classTrainer" class="border p-3 rounded-xl" required>
+        <select id="classTrainer" required>
           <!-- Opciones dinámicas de entrenadores -->
         </select>
-        <input id="classMaxUsers" type="number" class="border p-3 rounded-xl" placeholder="Máximo de alumnos" min="1" max="50" required />
+        <input id="classMaxUsers" type="number" placeholder="Máximo de alumnos" min="1" max="50" required />
 
-        <div class="flex justify-end gap-2 mt-4">
-          <button type="button" id="btnCancel" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Cancelar</button>
-          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Guardar</button>
+        <div>
+          <button type="button" id="btnCancel">Cancelar</button>
+          <button type="submit">Guardar</button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Modal for Class Details -->
-  <div id="detailsModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
-    <div class="bg-white rounded-xl p-8 w-[600px] max-h-[90vh] overflow-y-auto relative">
-      <h2 class="text-2xl font-bold mb-4">Detalles de la Clase</h2>
-      <div id="detailsContent" class="flex flex-col gap-4">
+  <div id="detailsModal" style="display: none;">
+    <div>
+      <h2>Detalles de la Clase</h2>
+      <div id="detailsContent">
         <!-- Información dinámica de participantes y evaluaciones -->
       </div>
-      <div class="flex justify-end mt-4">
-        <button id="btnCloseDetails" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Cerrar</button>
+      <div>
+        <button id="btnCloseDetails">Cerrar</button>
       </div>
     </div>
   </div>
