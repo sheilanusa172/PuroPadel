@@ -4,24 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inicio</title>
-  <link rel="stylesheet" href="/Admin/CSS/Inicio.css" />
 </head>
 <body>
 
   <!-- Barra Superior -->
-  <div class="header">
-    <button id="menu-toggle" class="menu-toggle">☰</button>
-    <div class="right-icons">
-      <button id="notification-btn" class="header-btn">
-        <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
+  <div>
+    <button id="menu-toggle">☰</button>
+    <div>
+      <button id="notification-btn">
+        <img src="/imagenes/campana.png" alt="Notificaciones" />
       </button>
-      <div class="dropdown" id="notification-menu" style="display: none;">
+      <div id="notification-menu" style="display: none;">
         <p>No tienes nuevas notificaciones.</p>
       </div>
-      <button id="profile-btn" class="header-btn">
-        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="profile-pic-small" />
+      <button id="profile-btn">
+        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" />
       </button>
-      <div class="dropdown" id="profile-menu" style="display: none;">
+      <div id="profile-menu" style="display: none;">
         <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
         <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
       </div>
@@ -29,32 +28,32 @@
   </div>
 
   <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
+  <div class="sidebar" id="sidebar">
     <ul>
-      <li><a href="/Admin/Html/LandingPage.html">Inicio</a></li>
-      <li><a href="/Admin/Html/Inicio.html">Noticias</a></li>
-      <li><a href="/Admin/Html/Courts.html">Cancha</a></li>
-      <li><a href="/Admin/Html/Courts2.html">Gestion de Canchas</a></li>
-       <li><a href="/Admin/Html/Classes.html">Gestion de Clases</a></li>
-      <li><a href="/Admin/Html/Reservations.html">Reservas</a></li>
-      <li><a href="/Admin/Html/Tournaments.html">Torneos</a></li>
-      <li><a href="/Admin/Html/Orders.html">Pedidos</a></li>
-      <li><a href="/Admin/Html/Calendar.html">Calendario</a></li>
-      <li><a href="/Admin/Html/Settings.html">Ajustes</a></li>
-      <li><a href="/Admin/Html/">Cerrar Sesión</a></li>
-    </ul>
+      <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
+      <li><a href="/Usuario/Html/ReservarCancha.html">Reservar Cancha</a></li>
+      <li><a href="/Usuario/Html/BuscarPartido.html">Buscar Partido</a></li>
+      <li><a href="/Usuario/Html/QuienesSomos.html">Quiénes Somos</a></li>
+      <li><a href="/Usuario/Html/Profesores.html">Profesores</a></li>
+      <li><a href="/Usuario/Html/Clases.html">Clases</a></li>
+      <li><a href="/Usuario/Html/Torneos.html">Torneos</a></li>
+      <li><a href="/Usuario/Html/Leaderboard.html">Leaderboard</a></li>
+      <li><a href="/Usuario/Html/CatalogodeProductos.html">Catálogo de Productos</a></li>
+      <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
+      <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
+  </ul>
   </div>
 
   <!-- Contenido Principal -->
-  <div id="main-content" class="main-content">
-    <div class="container">
+  <div id="main-content">
+    <div>
       <h1>Noticias</h1>
 
       <input type="text" id="filter-input" placeholder="Filtrar noticias por Titulo...." />
 
       <button id="show-form-button">Crear Noticia</button>
 
-      <div class="form-container" id="form-container" style="display: none;">
+      <div id="form-container" style="display: none;">
         <h2>Crear Noticia</h2>
         <form id="news-form">
           <input type="text" id="news-title" placeholder="Título de la noticia *" required>

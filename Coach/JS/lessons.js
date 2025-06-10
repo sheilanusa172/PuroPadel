@@ -12,11 +12,11 @@ function renderLessons() {
       <td>${lesson.time}</td>
       <td>${lesson.players}</td>
       <td>${lesson.level}</td>
-      <td><span class="badge bg-${lesson.status === "Scheduled" ? "success" : "danger"}">${lesson.status}</span></td>
+      <td><span class="${lesson.status === "Scheduled" ? "badge-success" : "badge-danger"}">${lesson.status}</span></td>
       <td>
-        <button class="btn btn-sm btn-outline-info me-1" onclick="viewEnrolled(${index})">View Enrolled</button>
-        <button class="btn btn-sm btn-outline-primary me-1" onclick="editLesson(${index})">Edit</button>
-        <button class="btn btn-sm btn-outline-danger" onclick="deleteLesson(${index})">Delete</button>
+        <button class="btn-info" onclick="viewEnrolled(${index})">View Enrolled</button>
+        <button class="btn-primary" onclick="editLesson(${index})">Edit</button>
+        <button class="btn-danger" onclick="deleteLesson(${index})">Delete</button>
       </td>
     `;
     tableBody.appendChild(row);
@@ -24,14 +24,14 @@ function renderLessons() {
 }
 
 function showLessonForm() {
-  document.getElementById("lessonFormContainer").classList.remove("d-none");
+  document.getElementById("lessonFormContainer").classList.remove("hidden");
   document.getElementById("formTitle").innerText = "Create Lesson";
   document.getElementById("lessonForm").reset();
   document.getElementById("lessonId").value = "";
 }
 
 function hideLessonForm() {
-  document.getElementById("lessonFormContainer").classList.add("d-none");
+  document.getElementById("lessonFormContainer").classList.add("hidden");
 }
 
 function saveLesson(event) {
@@ -48,7 +48,7 @@ function saveLesson(event) {
     status: document.getElementById("lessonStatus").value,
   };
 
-  if (id) {
+  if (id !== "") {
     lessons[id] = lesson;
   } else {
     lessons.push(lesson);
@@ -84,4 +84,5 @@ function viewEnrolled(index) {
   alert(`Students enrolled for "${lesson.name}"\n\nDate: ${lesson.date}\nTime: ${lesson.time}\nPlayers: ${lesson.players}`);
 }
 
+// Inicialización
 renderLessons();

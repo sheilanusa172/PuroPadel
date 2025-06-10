@@ -4,38 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Canchas</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body>
 
   <!-- Header -->
-  <div class="flex justify-between items-center p-6">
-    <h1 class="text-3xl font-bold">Gestión de Canchas</h1>
-    <button id="btnAddCourt" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">+ Nueva Cancha</button>
+  <div>
+    <h1>Gestión de Canchas</h1>
+    <button id="btnAddCourt">+ Nueva Cancha</button>
   </div>
 
   <!-- List of Courts -->
-  <div id="courtsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+  <div id="courtsList">
     <!-- Canchas se inyectan dinámicamente aquí -->
   </div>
 
   <!-- Modal for Add/Edit Court -->
-  <div id="courtModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center">
-    <div class="bg-white rounded-xl p-8 w-[500px] max-h-[90vh] overflow-y-auto relative">
-      <h2 id="modalTitle" class="text-2xl font-bold mb-4">Nueva Cancha</h2>
-      <form id="courtForm" class="flex flex-col gap-4">
-        <input id="courtName" type="text" placeholder="Nombre de la cancha" class="border p-3 rounded-xl" required />
+  <div id="courtModal" style="display: none;">
+    <div>
+      <h2 id="modalTitle">Nueva Cancha</h2>
+      <form id="courtForm">
+        <input id="courtName" type="text" placeholder="Nombre de la cancha" required />
 
-        <select id="courtStatus" class="border p-3 rounded-xl" required>
+        <select id="courtStatus" required>
           <option value="active">Activa</option>
           <option value="maintenance">Mantenimiento</option>
           <option value="disabled">Deshabilitada</option>
         </select>
 
         <!-- Días de mantenimiento -->
-        <div id="maintenanceDaysContainer" class="hidden">
-          <label class="font-semibold block mt-2">Días en mantenimiento:</label>
-          <div class="grid grid-cols-2 gap-1">
+        <div id="maintenanceDaysContainer" style="display: none;">
+          <label>Días en mantenimiento:</label>
+          <div>
             <label><input type="checkbox" value="monday" class="maintenance-day"> Lunes</label>
             <label><input type="checkbox" value="tuesday" class="maintenance-day"> Martes</label>
             <label><input type="checkbox" value="wednesday" class="maintenance-day"> Miércoles</label>
@@ -46,22 +45,22 @@
           </div>
         </div>
 
-        <input id="courtImage" type="file" accept="image/*" class="border p-3 rounded-xl" />
+        <input id="courtImage" type="file" accept="image/*" />
 
         <!-- Horarios por día -->
-        <div class="grid grid-cols-2 gap-2">
-          <label>Lunes: <input type="text" id="monday" placeholder="Ej: 7:00-22:00" class="border p-2 rounded w-full" /></label>
-          <label>Martes: <input type="text" id="tuesday" placeholder="Ej: 7:00-22:00" class="border p-2 rounded w-full" /></label>
-          <label>Miércoles: <input type="text" id="wednesday" placeholder="Ej: 7:00-22:00" class="border p-2 rounded w-full" /></label>
-          <label>Jueves: <input type="text" id="thursday" placeholder="Ej: 7:00-22:00" class="border p-2 rounded w-full" /></label>
-          <label>Viernes: <input type="text" id="friday" placeholder="Ej: 7:00-22:00" class="border p-2 rounded w-full" /></label>
-          <label>Sábado: <input type="text" id="saturday" placeholder="Ej: 8:00-18:00" class="border p-2 rounded w-full" /></label>
-          <label>Domingo: <input type="text" id="sunday" placeholder="Ej: Cerrado" class="border p-2 rounded w-full" /></label>
+        <div>
+          <label>Lunes: <input type="text" id="monday" placeholder="Ej: 7:00-22:00" /></label>
+          <label>Martes: <input type="text" id="tuesday" placeholder="Ej: 7:00-22:00" /></label>
+          <label>Miércoles: <input type="text" id="wednesday" placeholder="Ej: 7:00-22:00" /></label>
+          <label>Jueves: <input type="text" id="thursday" placeholder="Ej: 7:00-22:00" /></label>
+          <label>Viernes: <input type="text" id="friday" placeholder="Ej: 7:00-22:00" /></label>
+          <label>Sábado: <input type="text" id="saturday" placeholder="Ej: 8:00-18:00" /></label>
+          <label>Domingo: <input type="text" id="sunday" placeholder="Ej: Cerrado" /></label>
         </div>
 
-        <div class="flex justify-end gap-2 mt-4">
-          <button type="button" id="btnCancel" class="px-4 py-2 rounded-xl border hover:bg-gray-100">Cancelar</button>
-          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700">Guardar</button>
+        <div>
+          <button type="button" id="btnCancel">Cancelar</button>
+          <button type="submit">Guardar</button>
         </div>
       </form>
     </div>

@@ -5,39 +5,48 @@ function renderTournaments() {
   tableBody.innerHTML = "";
 
   tournaments.forEach((t, i) => {
-    tableBody.innerHTML += `
-      <tr>
-        <td>${t.name}</td>
-        <td>${t.startDate}</td>
-        <td>${t.endDate}</td>
-        <td>${t.level}</td>
-        <td>${t.players || 0}</td>
-        <td><span class="badge bg-${t.status === "Active" ? "success" : t.status === "Finalized" ? "secondary" : "danger"}">${t.status}</span></td>
-        <td>
-          <button class="btn btn-sm btn-info me-1" onclick="viewPlayers(${i})">View</button>
-          <button class="btn btn-sm btn-primary me-1" onclick="editTournament(${i})">Edit</button>
-          <button class="btn btn-sm btn-danger" onclick="deleteTournament(${i})">Delete</button>
-        </td>
-      </tr>`;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${t.name}</td>
+      <td>${t.startDate}</td>
+      <td>${t.endDate}</td>
+      <td>${t.level}</td>
+      <td>${t.players || 0}</td>
+      <td><span class="${getStatusClass(t.status)}">${t.status}</span></td>
+      <td>
+        <button class="btn-info" onclick="viewPlayers(${i})">View</button>
+        <button class="btn-primary" onclick="editTournament(${i})">Edit</button>
+        <button class="btn-danger" onclick="deleteTournament(${i})">Delete</button>
+      </td>
+    `;
+    tableBody.appendChild(row);
   });
+}
 
-  if ($.fn.DataTable.isDataTable("#tournamentTable")) {
-    $("#tournamentTable").DataTable().destroy();
+function getStatusClass(status) {
+  switch (status) {
+    case "Active":
+      return "badge-success";
+    case "Finalized":
+      return "badge-secondary";
+    case "Cancelled":
+      return "badge-danger";
+    default:
+      return "";
   }
-  $("#tournamentTable").DataTable();
 }
 
 function showTournamentForm() {
-  document.getElementById("tournamentFormContainer").classList.remove("d-none");
+  document.getElementById("tournamentFormContainer").classList.remove("hidden");
   document.getElementById("tournamentForm").reset();
   document.getElementById("tournamentId").value = "";
   document.getElementById("tournamentCode").value = "";
-  document.getElementById("codeContainer").classList.add("d-none");
+  document.getElementById("codeContainer").classList.add("hidden");
   document.getElementById("formTitle").innerText = "Create Tournament";
 }
 
 function hideTournamentForm() {
-  document.getElementById("tournamentFormContainer").classList.add("d-none");
+  document.getElementById("tournamentFormContainer").classList.add("hidden");
 }
 
 function handlePrivacyChange() {
@@ -45,19 +54,19 @@ function handlePrivacyChange() {
   const codeField = document.getElementById("codeContainer");
 
   if (privacy === "Private") {
-    const code = Math.floor(100000 + Math.random() * 900000); // 6-digit code
+    const code = Math.floor(100000 + Math.random() * 900000);
     document.getElementById("tournamentCode").value = code;
-    codeField.classList.remove("d-none");
+    codeField.classList.remove("hidden");
   } else {
-    codeField.classList.add("d-none");
     document.getElementById("tournamentCode").value = "";
+    codeField.classList.add("hidden");
   }
 }
 
 function saveTournament(e) {
   e.preventDefault();
-  const id = document.getElementById("tournamentId").value;
 
+  const id = document.getElementById("tournamentId").value;
   const t = {
     name: document.getElementById("tournamentName").value,
     startDate: document.getElementById("tournamentStart").value,
@@ -79,6 +88,7 @@ function saveTournament(e) {
 
 function editTournament(index) {
   const t = tournaments[index];
+
   document.getElementById("tournamentId").value = index;
   document.getElementById("tournamentName").value = t.name;
   document.getElementById("tournamentStart").value = t.startDate;
@@ -90,12 +100,11 @@ function editTournament(index) {
   document.getElementById("tournamentPrivacy").value = t.privacy;
   document.getElementById("tournamentCode").value = t.accessCode;
 
-  // Mostrar código si es privado
   const codeField = document.getElementById("codeContainer");
   if (t.privacy === "Private") {
-    codeField.classList.remove("d-none");
+    codeField.classList.remove("hidden");
   } else {
-    codeField.classList.add("d-none");
+    codeField.classList.add("hidden");
   }
 
   document.getElementById("formTitle").innerText = "Edit Tournament";
