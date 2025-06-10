@@ -1,7 +1,8 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #d9d9d9;
+    color: #000000;
     margin: 0;
     padding: 0;
 }
@@ -9,8 +10,8 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
-    background-color: #343a40;
-    color: #fff;
+    background-color: #2c2c2c;
+    color: #ffffff;
     padding: 20px;
     height: 100vh;
     position: fixed;
@@ -20,69 +21,117 @@ body {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.5rem;
+    color: #ffffff;
 }
 
+/* Elimina viñetas de listas */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo tipo botón plano */
 .sidebar a {
     display: block;
-    color: #adb5bd;
+    color: #ffffff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 12px 15px;
+    border-bottom: 2px solid transparent;
     border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .sidebar a:hover {
-    background-color: #495057;
-    color: #fff;
+    border-bottom: 2px solid #ffffff;
+    background-color: #000000;
+}
+
+/* Header/NavBar Styles */
+.navbar,
+.header {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 /* Content Styles */
 .content {
     margin-left: 270px;
-    padding: 20px;
+    padding: 100px 20px 20px 20px;
+    color: #000000;
 }
 
-.card {
+/* Card and Modal Styles */
+.card,
+.chart-container,
+.calendar-container,
+.modal {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.chart-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-/* Calendar Styles */
-.calendar-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Button Styles */
+button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Inputs and Selects */
+input,
+select,
+textarea {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Calendar Specific */
 #reservationCalendar {
     margin-top: 20px;
     border: 1px solid #dee2e6;
     border-radius: 10px;
     padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Calendar Header */
 .fc-toolbar {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #2c2c2c;
+    color: #ffffff;
     padding: 10px;
     border-radius: 5px;
 }
 
 .fc-button {
-    background-color: #495057;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -90,13 +139,13 @@ body {
 }
 
 .fc-button:hover {
-    background-color: #6c757d;
+    background-color: #e0e0e0;
 }
 
 /* Calendar Events */
 .fc-event {
     background-color: #17a2b8;
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     padding: 5px;
