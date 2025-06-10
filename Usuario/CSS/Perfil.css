@@ -155,7 +155,7 @@ body {
   text-align: center;
 }
 
-.info-btn {
+.info-btn, .report-btn {
   margin: 10px;
   padding: 10px 20px;
   background-color: #000000;
@@ -166,7 +166,7 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.info-btn:hover {
+.info-btn:hover, .report-btn:hover {
   background-color: #444;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
@@ -192,20 +192,4 @@ body {
   font-size: 24px;
   color: #000000;
   cursor: pointer;
-}
-
-.report-btn {
-  margin-top: 10px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.report-btn:hover {
-  background-color: #e60000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
