@@ -1,3 +1,5 @@
+// Perfil.js
+
 // Toggle Sidebar
 const menuToggle = document.getElementById('menu-toggle');
 menuToggle?.addEventListener('click', function () {
@@ -92,11 +94,28 @@ function closeInfo() {
   document.getElementById('info-content').style.display = 'none';
 }
 
-// Reportar Usuario
-const reportBtn = document.getElementById('reportButton');
-reportBtn?.addEventListener('click', () => {
-  if (confirm("¿Estás seguro que deseas reportar a este usuario?")) {
-    alert("Gracias, tu reporte ha sido recibido y está siendo revisado.");
-    // Lógica de envío al backend aquí si se desea
+// Botón de reportar usuario
+window.addEventListener('DOMContentLoaded', () => {
+  const reportBtn = document.getElementById('reportButton');
+  if (reportBtn) {
+    reportBtn.addEventListener('click', () => {
+      const confirmed = confirm("¿Estás seguro que deseas reportar a este usuario?");
+      if (confirmed) {
+        alert("Gracias, tu reporte ha sido recibido y está siendo revisado.");
+
+        // Ejemplo de fetch al backend:
+        /*
+        fetch('/api/report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId: 123,
+            motivo: "Comportamiento inapropiado"
+          })
+        })
+        .then(res => res.ok ? alert("Reporte enviado.") : alert("Error al enviar reporte."));
+        */
+      }
+    });
   }
 });

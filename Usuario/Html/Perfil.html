@@ -1,3 +1,4 @@
+<!-- Perfil.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +26,7 @@
             </div>
         </div>
     </div>
+
     <div class="sidebar" id="sidebar">
         <ul>
             <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
@@ -40,6 +42,7 @@
             <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
         </ul>
     </div>
+
     <div class="content">
         <div class="profile-header">
             <img src="/imagenes/Jose Maria Garcias.webp" alt="Jose Maria" class="profile-pic">
@@ -53,15 +56,19 @@
             <h1 class="profile-name">Jose Maria</h1>
             <p class="profile-description">Hola, me llamo Jose Maria y soy un apasionado del pádel. Disfruto de los torneos competitivos y siempre estoy buscando mejorar mi técnica.</p>
         </div>
+
         <div class="info-buttons">
             <button class="info-btn" onclick="showInfo('clases')">Clases</button>
             <button class="info-btn" onclick="showInfo('partido')">Partido</button>
             <button class="info-btn" onclick="showInfo('torneos')">Torneos</button>
+            <button id="reportButton" class="report-btn">Denunciar</button>
         </div>
+
         <div class="info-content" id="info-content">
             <span class="close-btn" onclick="closeInfo()">&times;</span>
             <h2 id="info-title" style="text-align: center;"></h2>
             <p id="info-text"></p>
+            <div id="record-stats"></div>
         </div>
     </div>
 
