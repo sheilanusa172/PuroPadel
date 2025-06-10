@@ -4,46 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/Admin/CSS/Lannding.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h4>Dashboard</h4>
-            <a href="../Html/Users.html">Users</a>
-            <a href="/Usuario/Html/Torneos.html">Tournaments</a>
-            <a href="../Html/Courts.html">Courts</a>
-            <a href="../Html/Classes.html">Classes</a>
-            <a href="../Html/Calendar.html">Calendar</a>
-            <a href="../Html/Orders.html">Orders</a>
-            <a href="../Html/Settings.html">Settings</a>
-            <a href="/Html/Login.html">LogOut</a>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="/Admin/Html/LandingPage.html">Inicio</a></li>
+        <li><a href="/Admin/Html/Inicio.html">Noticias</a></li>
+        <li><a href="/Admin/Html/Courts.html">Cancha</a></li>
+        <li><a href="/Admin/Html/Courts2.html">Gestión de Canchas</a></li>
+        <li><a href="/Admin/Html/Classes.html">Gestión de Clases</a></li>
+        <li><a href="/Admin/Html/Reservations.html">Reservas</a></li>
+        <li><a href="/Admin/Html/Tournaments.html">Torneos</a></li>
+        <li><a href="/Admin/Html/Orders.html">Pedidos</a></li>
+        <li><a href="/Admin/Html/Calendar.html">Calendario</a></li>
+        <li><a href="/Admin/Html/Settings.html">Ajustes</a></li>
+        <li><a href="/Admin/Html/">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h2>Dashboard</h2>
+
+      <div class="row">
+        <div class="card">
+          <h3>1,250</h3>
+          <p>USERS</p>
         </div>
+        <div class="card">
+          <h3>250</h3>
+          <p>POSTS</p>
+        </div>
+      </div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <h2>Dashboard</h2>
-            <div class="row mb-4">
-                <div class="col-md-3">
-                    <div class="card text-center p-3 bg-light">
-                        <h3>1,250</h3>
-                        <p>USERS</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-center p-3 bg-light">
-                        <h3>250</h3>
-                        <p>POSTS</p>
-                    </div>
-                </div>
-            </div>
-
-      <div>
-        <div>
+      <div class="charts">
+        <div class="chart-container">
           <h5>User Registrations</h5>
           <canvas id="lineChart"></canvas>
         </div>
-        <div>
+        <div class="chart-container">
           <h5>Registered Lessons</h5>
           <canvas id="pieChart"></canvas>
         </div>
@@ -56,7 +59,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../JS/LandingPage.js"></script>
   <script src="../JS/Calendario.js"></script>
 </body>

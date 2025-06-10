@@ -4,56 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inicio</title>
+  <link rel="stylesheet" href="/Admin/Css/Inicio.css">
 </head>
 <body>
 
-  <!-- Barra Superior -->
-  <div>
-    <button id="menu-toggle">☰</button>
-    <div>
+  <!-- Header fijo -->
+  <div class="header">
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+    <div class="right-icons">
       <button id="notification-btn">
-        <img src="/imagenes/campana.png" alt="Notificaciones" />
+        <img src="/imagenes/campana.png" alt="Notificaciones" class="profile-pic-small" />
       </button>
-      <div id="notification-menu" style="display: none;">
+      <div id="notification-menu" class="dropdown">
         <p>No tienes nuevas notificaciones.</p>
       </div>
       <button id="profile-btn">
-        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" />
+        <img src="/imagenes/Jose Maria Garcias.webp" alt="Perfil" class="profile-pic-small" />
       </button>
-      <div id="profile-menu" style="display: none;">
+      <div id="profile-menu" class="dropdown">
         <a href="/Usuario/Html/Perfil.html">Mi perfil</a>
         <a href="/Usuario/Html/Ajustes.html">Configuraciones</a>
       </div>
     </div>
   </div>
 
-  <!-- Sidebar -->
+  <!-- Sidebar funcional -->
   <div class="sidebar" id="sidebar">
     <ul>
-      <li><a href="/Usuario/Html/Inicio.html">Inicio</a></li>
-      <li><a href="/Usuario/Html/ReservarCancha.html">Reservar Cancha</a></li>
-      <li><a href="/Usuario/Html/BuscarPartido.html">Buscar Partido</a></li>
-      <li><a href="/Usuario/Html/QuienesSomos.html">Quiénes Somos</a></li>
-      <li><a href="/Usuario/Html/Profesores.html">Profesores</a></li>
-      <li><a href="/Usuario/Html/Clases.html">Clases</a></li>
-      <li><a href="/Usuario/Html/Torneos.html">Torneos</a></li>
-      <li><a href="/Usuario/Html/Leaderboard.html">Leaderboard</a></li>
-      <li><a href="/Usuario/Html/CatalogodeProductos.html">Catálogo de Productos</a></li>
-      <li><a href="/Usuario/Html/Calendario.html">Calendario</a></li>
-      <li><a href="/Usuario/Html/CerrarSesion.html">Cerrar Sesión</a></li>
-  </ul>
+      <li><a href="/Admin/Html/LandingPage.html"> Inicio</a></li>
+      <li><a href="/Admin/Html/Inicio.html"> Noticias</a></li>
+      <li><a href="/Admin/Html/Courts.html"> Cancha</a></li>
+      <li><a href="/Admin/Html/Courts2.html"> Gestión de Canchas</a></li>
+      <li><a href="/Admin/Html/Classes.html"> Clases</a></li>
+      <li><a href="/Admin/Html/Reservations.html"> Reservas</a></li>
+      <li><a href="/Admin/Html/Tournaments.html"> Torneos</a></li>
+      <li><a href="/Admin/Html/Orders.html"> Pedidos</a></li>
+      <li><a href="/Admin/Html/Calendar.html"> Calendario</a></li>
+      <li><a href="/Admin/Html/Settings.html"> Ajustes</a></li>
+      <li><a href="/Admin/Html/"> Cerrar Sesión</a></li>
+    </ul>
   </div>
 
-  <!-- Contenido Principal -->
-  <div id="main-content">
-    <div>
+  <!-- Contenido principal -->
+  <div class="main-content" id="main-content">
+    <div class="container">
       <h1>Noticias</h1>
 
-      <input type="text" id="filter-input" placeholder="Filtrar noticias por Titulo...." />
+      <input type="text" id="filter-input" placeholder="Filtrar noticias por título..." />
 
       <button id="show-form-button">Crear Noticia</button>
 
-      <div id="form-container" style="display: none;">
+      <div id="form-container" class="form-container" style="display: none;">
         <h2>Crear Noticia</h2>
         <form id="news-form">
           <input type="text" id="news-title" placeholder="Título de la noticia *" required>
@@ -71,6 +72,5 @@
   </div>
 
   <script src="/Admin/JS/Inicio.js"></script>
-
 </body>
 </html>
