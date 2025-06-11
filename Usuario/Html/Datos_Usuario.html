@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario de Datos de Usuario</title>
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Datos de Usuario</title>
+  <link rel="stylesheet" href="../CSS/formularioUsuario.css" />
+</head>
+
   <body>
     <h1>Formulario de Datos de Usuario</h1>
     <form action="/userdata" method="POST">
@@ -60,16 +62,14 @@
       <div>
         <label for="category">Categoría:</label><br />
         <select id="category" name="category" required>
-          <option value="Principiante">Iniciación</option>
-          <option value="-C">-C</option>
-          <option value="C">C</option>
-          <option value="+C">+C</option>
-          <option value="-B">-B</option>
-          <option value="B">B</option>
-          <option value="+B">+B</option>
-          <option value="-A">-A</option>
-          <option value="A">A</option>
-          <option value="+A">+A</option>
+        <option value="">Selecciona una</option>
+            <option value="Primera">Primera</option>
+            <option value="Segunda">Segunda</option>
+            <option value="Tercera">Tercera</option>
+            <option value="Cuarta">Cuarta</option>
+            <option value="Quinta">Quinta</option>
+            <option value="Iniciación">Iniciación</option>
+            <option value="Libre">Libre</option>
         </select>
       </div>
       <br />
