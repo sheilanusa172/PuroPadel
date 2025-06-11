@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Clases</title>
+  <link rel="stylesheet" href="../CSS/Clases.css">
 </head>
 <body>
 
@@ -19,8 +20,8 @@
   </div>
 
   <!-- Modal for Add/Edit Class -->
-  <div id="classModal" style="display: none;">
-    <div>
+  <div id="classModal" class="modal hidden">
+    <div class="modal-content">
       <h2 id="modalTitle">Nueva Clase</h2>
       <form id="classForm">
         <input id="className" type="text" placeholder="Nombre de la Clase" required />
@@ -37,23 +38,23 @@
         </select>
         <input id="classMaxUsers" type="number" placeholder="Máximo de alumnos" min="1" max="50" required />
 
-        <div>
-          <button type="button" id="btnCancel">Cancelar</button>
-          <button type="submit">Guardar</button>
+        <div class="modal-buttons">
+          <button type="button" id="btnCancel" class="cancel">Cancelar</button>
+          <button type="submit" class="submit">Guardar</button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Modal for Class Details -->
-  <div id="detailsModal" style="display: none;">
-    <div>
+  <div id="detailsModal" class="modal hidden">
+    <div class="modal-content">
       <h2>Detalles de la Clase</h2>
       <div id="detailsContent">
         <!-- Información dinámica de participantes y evaluaciones -->
       </div>
-      <div>
-        <button id="btnCloseDetails">Cerrar</button>
+      <div class="modal-buttons">
+        <button id="btnCloseDetails" class="cancel">Cerrar</button>
       </div>
     </div>
   </div>

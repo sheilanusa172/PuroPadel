@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Landing - Puro Pádel</title>
+  <link rel="stylesheet" href="../Css/courts.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <div>
-    <h1>Welcome to Puro Pádel Admin</h1>
-  </div>
+  <h1>Welcome to Puro Pádel Admin</h1>
 
-  <!-- Cards -->
-  <div>
+  <div class="card-container">
 
-    <!-- Gestion de Canchas -->
-    <a href="../Html/Courts2.html">
-      <h2>Gestion de Canchas</h2>
+    <div class="card" onclick="location.href='../Html/Courts2.html'">
+      <h2>Gestión de Canchas</h2>
       <p>Administrar canchas, horarios y disponibilidad.</p>
-    </a>
+    </div>
 
-    <!-- Gestion de Reservas -->
-    <a href="../Html/Reservations.html">
-      <h2>Gestion de Reservas</h2>
+    <div class="card" onclick="location.href='../Html/Reservations.html'">
+      <h2>Gestión de Reservas</h2>
       <p>Ver, modificar y administrar reservas de usuarios.</p>
-    </a>
+    </div>
 
   </div>
 

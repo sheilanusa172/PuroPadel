@@ -36,15 +36,15 @@ btnAddClass.addEventListener('click', () => {
   modalTitle.textContent = 'Nueva Clase';
   classForm.reset();
   populateTrainers();
-  classModal.style.display = 'block';
+  classModal.classList.remove('hidden');
 });
 
 btnCancel.addEventListener('click', () => {
-  classModal.style.display = 'none';
+  classModal.classList.add('hidden');
 });
 
 btnCloseDetails.addEventListener('click', () => {
-  detailsModal.style.display = 'none';
+  detailsModal.classList.add('hidden');
 });
 
 classForm.addEventListener('submit', (e) => {
@@ -70,7 +70,7 @@ classForm.addEventListener('submit', (e) => {
     classes.push(newClass);
   }
 
-  classModal.style.display = 'none';
+  classModal.classList.add('hidden');
   renderClasses();
 });
 
@@ -79,21 +79,17 @@ function renderClasses() {
 
   classes.forEach(cls => {
     const card = document.createElement('div');
-    card.style.border = '1px solid #ccc';
-    card.style.padding = '16px';
-    card.style.marginBottom = '12px';
-    card.style.borderRadius = '8px';
-    card.style.background = '#fff';
+    card.className = 'class-card';
 
     card.innerHTML = `
-      <h3><b>${cls.name}</b></h3>
+      <h3>${cls.name}</h3>
       <p><strong>Fecha:</strong> ${cls.date}</p>
       <p><strong>Hora:</strong> ${cls.time}</p>
       <p><strong>Nivel:</strong> ${cls.level}</p>
       <p><strong>Entrenador:</strong> ${cls.trainer}</p>
       <p><strong>Participantes:</strong> ${cls.participants.length} / ${cls.maxUsers}</p>
-      <p><strong>Estado:</strong> ${formatStatus(cls.status)}</p>
-      <div style="margin-top: 10px;">
+      <p><strong>Estado:</strong> <span class="status-${cls.status}">${formatStatus(cls.status)}</span></p>
+      <div class="actions">
         <button onclick="viewDetails(${cls.id})">Ver Detalles</button>
         <button onclick="editClass(${cls.id})">Editar</button>
         <button onclick="cancelClass(${cls.id})">Cancelar</button>
@@ -108,25 +104,25 @@ function viewDetails(id) {
   const cls = classes.find(c => c.id === id);
   if (cls) {
     detailsContent.innerHTML = `
-      <h3><b>${cls.name}</b></h3>
+      <h3>${cls.name}</h3>
       <p><strong>Fecha:</strong> ${cls.date}</p>
       <p><strong>Hora:</strong> ${cls.time}</p>
       <p><strong>Nivel:</strong> ${cls.level}</p>
       <p><strong>Entrenador:</strong> ${cls.trainer}</p>
       <p><strong>Límite de alumnos:</strong> ${cls.maxUsers}</p>
-      <div style="margin-top: 10px;">
+      <div class="mt-4">
         <h4>Participantes</h4>
         ${cls.participants.length > 0
           ? `<ul>${cls.participants.map(p => `<li>${p}</li>`).join('')}</ul>`
           : '<p>No hay participantes.</p>'}
       </div>
-      <div style="margin-top: 10px;">
+      <div class="mt-4">
         <h4>Evaluación</h4>
-        <textarea id="evaluationInput" rows="4" style="width: 100%;">${cls.evaluation}</textarea>
+        <textarea id="evaluationInput" rows="4" class="w-full border rounded p-2">${cls.evaluation}</textarea>
         <button onclick="saveEvaluation(${cls.id})">Guardar Evaluación</button>
       </div>
     `;
-    detailsModal.style.display = 'block';
+    detailsModal.classList.remove('hidden');
   }
 }
 
@@ -134,7 +130,7 @@ function saveEvaluation(id) {
   const evaluationText = document.getElementById('evaluationInput').value;
   classes = classes.map(c => c.id === id ? { ...c, evaluation: evaluationText } : c);
   alert('Evaluación guardada exitosamente.');
-  detailsModal.style.display = 'none';
+  detailsModal.classList.add('hidden');
 }
 
 function editClass(id) {
@@ -150,7 +146,7 @@ function editClass(id) {
     populateTrainers();
     classTrainer.value = cls.trainer;
     classMaxUsers.value = cls.maxUsers;
-    classModal.style.display = 'block';
+    classModal.classList.remove('hidden');
   }
 }
 
@@ -163,9 +159,9 @@ function cancelClass(id) {
 }
 
 function formatStatus(status) {
-  if (status === 'scheduled') return '🟢 Programada';
-  if (status === 'finished') return '🔵 Finalizada';
-  if (status === 'cancelled') return '🔴 Cancelada';
+  if (status === 'scheduled') return 'Programada';
+  if (status === 'finished') return 'Finalizada';
+  if (status === 'cancelled') return 'Cancelada';
   return status;
 }
 

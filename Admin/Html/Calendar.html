@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario Personal</title>
+  <link rel="stylesheet" href="../CSS/calendario.css">
 </head>
 <body>
 
@@ -25,8 +26,8 @@
   </div>
 
   <!-- Modal for Adding/Editing Event -->
-  <div id="eventModal" style="display: none;">
-    <div>
+  <div id="eventModal" class="modal hidden">
+    <div class="modal-content">
       <h2 id="modalTitle">Nuevo Evento</h2>
       <form id="eventForm">
         <input id="eventTitle" type="text" placeholder="Título del Evento" required />

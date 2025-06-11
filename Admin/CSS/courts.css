@@ -1,0 +1,250 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dcdcdc;
+  margin: 0;
+  padding: 40px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #ccc;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+
+/* ===== Gestión de Canchas ===== */
+
+#btnAddCourt {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+  margin-bottom: 30px;
+}
+
+#btnAddCourt:hover {
+  background-color: #0056b3;
+}
+
+#courtsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+#courtsList > div {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 20px;
+  width: 320px;
+  transition: transform 0.2s;
+}
+
+#courtsList > div:hover {
+  transform: translateY(-5px);
+}
+
+#courtsList img {
+  border-radius: 10px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+#courtsList h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+#courtsList p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+#courtsList ul {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+#courtsList li {
+  font-size: 13px;
+  color: #555;
+}
+
+#courtsList .flex {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.bg-yellow-500 {
+  background-color: #fbbf24;
+}
+
+.bg-yellow-500:hover {
+  background-color: #f59e0b;
+}
+
+.bg-red-500 {
+  background-color: #ef4444;
+}
+
+.bg-red-500:hover {
+  background-color: #dc2626;
+}
+
+.text-white {
+  color: white;
+}
+
+/* ===== Modal Canchas ===== */
+
+#courtModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none; /* inicial */
+}
+
+#courtModal.show {
+  display: flex;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#courtModal > div {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+#courtModal h2 {
+  margin-top: 0;
+}
+
+#courtForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#courtForm input,
+#courtForm select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#courtForm label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+#courtForm input[type="text"] {
+  width: 100%;
+}
+
+#courtForm button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btnCancel {
+  background-color: #ccc;
+}
+
+#btnCancel:hover {
+  background-color: #bbb;
+}
+
+#courtForm button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+#courtForm button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none !important;
+}
