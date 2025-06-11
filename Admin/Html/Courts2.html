@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Canchas</title>
+  <link rel="stylesheet" href="../CSS/courts.css">
+
 </head>
 <body>
 
@@ -19,7 +21,7 @@
   </div>
 
   <!-- Modal for Add/Edit Court -->
-  <div id="courtModal" style="display: none;">
+  <div id="courtModal" class="hidden">
     <div>
       <h2 id="modalTitle">Nueva Cancha</h2>
       <form id="courtForm">
@@ -32,7 +34,7 @@
         </select>
 
         <!-- Días de mantenimiento -->
-        <div id="maintenanceDaysContainer" style="display: none;">
+        <div id="maintenanceDaysContainer" class="hidden">
           <label>Días en mantenimiento:</label>
           <div>
             <label><input type="checkbox" value="monday" class="maintenance-day"> Lunes</label>

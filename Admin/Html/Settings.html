@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings</title>
+  <title>Configuración</title>
+  <link rel="stylesheet" href="../CSS/settings.css">
 </head>
 <body>
 
-  <div>
+  <div class="settings-container">
     <h1 id="pageTitle">Configuración</h1>
 
     <!-- Cambiar Contraseña -->
-    <div>
+    <div class="settings-section">
       <h2 data-toggle="passwordSection">🔐 Cambiar Contraseña</h2>
-      <div id="passwordSection" style="display: none;">
+      <div id="passwordSection" class="hidden">
         <form id="passwordForm">
           <input type="password" id="currentPassword" placeholder="Contraseña Actual" required>
           <input type="password" id="newPassword" placeholder="Nueva Contraseña" required>
@@ -24,9 +25,9 @@
     </div>
 
     <!-- Datos Personales -->
-    <div>
+    <div class="settings-section">
       <h2 data-toggle="personalSection">👤 Datos Personales</h2>
-      <div id="personalSection" style="display: none;">
+      <div id="personalSection" class="hidden">
         <form id="personalForm">
           <input type="email" id="emailAddress" value="usuario@correo.com" disabled>
           <input type="text" id="phoneNumber" placeholder="Número de Teléfono">
@@ -36,22 +37,22 @@
     </div>
 
     <!-- Apariencia -->
-    <div>
+    <div class="settings-section">
       <h2 data-toggle="appearanceSection">🌗 Modo Oscuro</h2>
-      <div id="appearanceSection" style="display: none;">
+      <div id="appearanceSection" class="hidden">
         <div>
-          <span>Activar Modo Oscuro</span>
           <label>
             <input type="checkbox" id="darkModeToggle">
+            Activar Modo Oscuro
           </label>
         </div>
       </div>
     </div>
 
     <!-- Formato de Hora -->
-    <div>
+    <div class="settings-section">
       <h2 data-toggle="hourFormatSection">🕓 Formato de Hora</h2>
-      <div id="hourFormatSection" style="display: none;">
+      <div id="hourFormatSection" class="hidden">
         <label for="hourFormat">Elige tu formato de hora preferido:</label>
         <select id="hourFormat">
           <option value="24">24 horas</option>
@@ -61,8 +62,8 @@
     </div>
 
     <!-- Cerrar Sesión -->
-    <div>
-      <button id="logoutBtn" onclick="window.location.href='/Html/Login.html'">🔓 Cerrar Sesión</button>
+    <div class="settings-section">
+      <button id="logoutBtn">🔓 Cerrar Sesión</button>
     </div>
   </div>
 

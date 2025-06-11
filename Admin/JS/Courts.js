@@ -28,7 +28,10 @@ btnAddCourt.addEventListener('click', () => {
   courtForm.reset();
   maintenanceDaysContainer.classList.add('hidden');
   maintenanceCheckboxes.forEach(cb => cb.checked = false);
+
+  // Mostrar el modal
   courtModal.classList.remove('hidden');
+  courtModal.classList.add('show');
 
   // Asignar horarios por defecto
   days.forEach(day => {
@@ -37,7 +40,9 @@ btnAddCourt.addEventListener('click', () => {
 });
 
 btnCancel.addEventListener('click', () => {
+  // Ocultar el modal
   courtModal.classList.add('hidden');
+  courtModal.classList.remove('show');
 });
 
 courtForm.addEventListener('submit', (e) => {
@@ -68,7 +73,10 @@ courtForm.addEventListener('submit', (e) => {
     courts.push(newCourt);
   }
 
+  // Ocultar el modal
   courtModal.classList.add('hidden');
+  courtModal.classList.remove('show');
+
   renderCourts();
 });
 
@@ -118,7 +126,10 @@ function editCourt(id) {
     days.forEach(day => {
       document.getElementById(day).value = court.availability[day] || '';
     });
+
+    // Mostrar el modal
     courtModal.classList.remove('hidden');
+    courtModal.classList.add('show');
   }
 }
 
