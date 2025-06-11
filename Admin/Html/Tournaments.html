@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tournaments Management</title>
+  <link rel="stylesheet" href="../CSS/tournaments.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <div>
-    <h1>Tournaments Management</h1>
-    <button id="btnAddTournament">+ Add Tournament</button>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Tournaments Management</h1>
+      <button id="btnAddTournament" class="primary">+ Add Tournament</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <input id="searchInput" type="text" placeholder="Search tournaments..." />
+      <select id="visibilityFilter">
+        <option value="all">All Visibilities</option>
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+      </select>
+    </div>
+
+    <!-- Tournament Cards -->
+    <div id="tournamentsList" class="tournaments-grid">
+      <!-- Cards will be rendered here -->
+    </div>
   </div>
 
-  <!-- Filters -->
-  <div>
-    <input id="searchInput" type="text" placeholder="Search tournaments..." />
-    <select id="visibilityFilter">
-      <option value="all">All Visibilities</option>
-      <option value="public">Public</option>
-      <option value="private">Private</option>
-    </select>
-  </div>
-
-  <!-- Tournaments List -->
-  <div id="tournamentsList">
-    <!-- Tournament cards will be injected here -->
-  </div>
-
-  <!-- Add/Edit Tournament Modal -->
-  <div id="tournamentModal" style="display: none;">
-    <div>
+  <!-- Modal for Tournament -->
+  <div id="tournamentModal" class="modal hidden">
+    <div class="modal-content">
       <h2 id="modalTitle">Add Tournament</h2>
       <form id="tournamentForm">
         <input id="name" type="text" placeholder="Tournament Name" required />
@@ -44,15 +47,15 @@
         </select>
         <input id="photo" type="file" accept="image/*" />
         <textarea id="description" placeholder="Description" rows="4" required></textarea>
-        <div>
-          <button type="button" id="btnCancel">Cancel</button>
-          <button type="submit">Save</button>
+
+        <div class="modal-buttons">
+          <button type="button" id="btnCancel" class="cancel">Cancel</button>
+          <button type="submit" class="submit">Save</button>
         </div>
       </form>
     </div>
   </div>
 
   <script src="../JS/Tournament.js"></script>
-
 </body>
 </html>

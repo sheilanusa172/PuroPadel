@@ -1,0 +1,215 @@
+/* General Layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dcdcdc;
+  margin: 0;
+  padding: 40px;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+/* Buttons */
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+button.primary:hover {
+  background-color: #0056b3;
+}
+
+button.cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+button.cancel:hover {
+  background-color: #5a6268;
+}
+
+button.submit {
+  background-color: #28a745;
+  color: white;
+}
+
+button.submit:hover {
+  background-color: #218838;
+}
+
+button.warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+button.warning:hover {
+  background-color: #e0a800;
+}
+
+button.info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+button.info:hover {
+  background-color: #138496;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Tournament Cards Grid */
+.tournaments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Tournament Card */
+.tournament-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tournament-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tournament-card h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.tournament-card p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.tournament-card .card-actions {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tournament-card .card-actions button {
+  flex: 1;
+  font-size: 13px;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Form inside Modal */
+#tournamentForm input,
+#tournamentForm select,
+#tournamentForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#tournamentForm textarea {
+  resize: vertical;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .modal-buttons,
+  .tournament-card .card-actions {
+    flex-direction: column;
+  }
+
+  .tournament-card .card-actions button {
+    width: 100%;
+  }
+}
