@@ -1,101 +1,105 @@
-let currentMonth = new Date();
-let events = {};
-
-const calendar = document.getElementById('calendar');
-const currentMonthLabel = document.getElementById('currentMonth');
-const prevMonthBtn = document.getElementById('prevMonth');
-const nextMonthBtn = document.getElementById('nextMonth');
-
-const eventModal = document.getElementById('eventModal');
-const modalTitle = document.getElementById('modalTitle');
-const eventForm = document.getElementById('eventForm');
-const eventTitle = document.getElementById('eventTitle');
-const eventDescription = document.getElementById('eventDescription');
-const eventStartTime = document.getElementById('eventStartTime');
-const eventEndTime = document.getElementById('eventEndTime');
-const eventType = document.getElementById('eventType');
-const btnCancelEvent = document.getElementById('btnCancelEvent');
+const calendar = document.getElementById("calendar");
+const currentMonth = document.getElementById("currentMonth");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+const eventModal = document.getElementById("eventModal");
+const eventForm = document.getElementById("eventForm");
+const btnCancelEvent = document.getElementById("btnCancelEvent");
 
 let selectedDate = null;
+let currentDate = new Date();
 
-prevMonthBtn.addEventListener('click', () => {
-  currentMonth.setMonth(currentMonth.getMonth() - 1);
-  renderCalendar();
-});
+// Eventos por día
+let events = {};
 
-nextMonthBtn.addEventListener('click', () => {
-  currentMonth.setMonth(currentMonth.getMonth() + 1);
-  renderCalendar();
-});
+function formatDateKey(date) {
+  return date.toISOString().split("T")[0];
+}
 
-btnCancelEvent.addEventListener('click', () => {
-  eventModal.classList.add('hidden');
-});
+function renderCalendar(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
 
-eventForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+  const monthNames = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+  currentMonth.textContent = `${monthNames[month]} de ${year}`;
+  calendar.innerHTML = "";
 
-  if (selectedDate) {
-    if (!events[selectedDate]) {
-      events[selectedDate] = [];
-    }
-
-    events[selectedDate].push({
-      title: eventTitle.value,
-      description: eventDescription.value,
-      startTime: eventStartTime.value,
-      endTime: eventEndTime.value,
-      type: eventType.value
-    });
-
-    eventModal.classList.add('hidden');
-    renderCalendar();
-  }
-});
-
-function renderCalendar() {
-  calendar.innerHTML = '';
-  currentMonthLabel.textContent = currentMonth.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
-
-  const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
-  const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
-  const startDay = firstDay.getDay(); // 0 (domingo) a 6 (sábado)
-
-  for (let i = 0; i < startDay; i++) {
-    const emptyCell = document.createElement('div');
-    calendar.appendChild(emptyCell);
+  for (let i = 0; i < firstDay; i++) {
+    calendar.innerHTML += `<div></div>`;
   }
 
-  for (let day = 1; day <= lastDay.getDate(); day++) {
-    const dateStr = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  for (let i = 1; i <= lastDate; i++) {
+    const dayDate = new Date(year, month, i);
+    const dateKey = formatDateKey(dayDate);
 
-    const dayCell = document.createElement('div');
-    dayCell.className = 'bg-white rounded-2xl shadow p-2 cursor-pointer hover:bg-blue-100';
-    dayCell.innerHTML = `<div class="font-bold">${day}</div>`;
+    const dayCell = document.createElement("div");
+    dayCell.classList.add("day-cell");
+    dayCell.innerHTML = `<div class="day-number">${i}</div>`;
 
-    if (events[dateStr]) {
-      events[dateStr].forEach(event => {
-        const eventDiv = document.createElement('div');
-        eventDiv.className = 'mt-1 text-xs bg-blue-200 rounded p-1 truncate';
-        eventDiv.innerHTML = `<strong>${event.startTime}</strong> ${event.title} (${event.type})`;
-        dayCell.appendChild(eventDiv);
+    if (events[dateKey]) {
+      events[dateKey].forEach(evt => {
+        const evtDiv = document.createElement("div");
+        evtDiv.className = "event-chip";
+        evtDiv.innerHTML = `
+          <strong>${evt.title}</strong>
+          <small>${evt.startTime}</small>
+        `;
+        dayCell.appendChild(evtDiv);
       });
     }
 
-    dayCell.addEventListener('click', () => openEventModal(dateStr));
+    dayCell.addEventListener("click", () => {
+      selectedDate = dayDate;
+      eventModal.classList.remove("hidden");
+    });
+
     calendar.appendChild(dayCell);
   }
 }
 
-function openEventModal(dateStr) {
-  selectedDate = dateStr;
-  eventTitle.value = '';
-  eventDescription.value = '';
-  eventStartTime.value = '';
-  eventEndTime.value = '';
-  eventType.value = 'Clase';
-  modalTitle.textContent = `Nuevo Evento para ${selectedDate}`;
-  eventModal.classList.remove('hidden');
-}
+prevMonth.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar(currentDate);
+});
 
-renderCalendar();
+nextMonth.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar(currentDate);
+});
+
+btnCancelEvent.addEventListener("click", () => {
+  eventModal.classList.add("hidden");
+  eventForm.reset();
+});
+
+eventForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById("eventTitle").value;
+  const description = document.getElementById("eventDescription").value;
+  const startTime = document.getElementById("eventStartTime").value;
+  const endTime = document.getElementById("eventEndTime").value;
+  const type = document.getElementById("eventType").value;
+
+  const dateKey = formatDateKey(selectedDate);
+  if (!events[dateKey]) events[dateKey] = [];
+
+  events[dateKey].push({
+    title,
+    description,
+    startTime,
+    endTime,
+    type
+  });
+
+  eventModal.classList.add("hidden");
+  eventForm.reset();
+  renderCalendar(currentDate);
+});
+
+renderCalendar(currentDate);
